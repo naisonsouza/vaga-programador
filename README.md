@@ -26,7 +26,7 @@ Os requisitos para desenvolvimento do sistema são:
 * Utilizar javascript para manipular eventos das telas sem a necessidade de recarregar a página.
 
 ## Entrega do projeto
-* Faça fork desse projeto e edite este README explicando como devo fazer para criar as tabelas e testar a tela de venda;
+* Faça fork desse projeto e edite este README explicando como devo fazer para criar as tabelas e testar as telas;
 * Todos os arquivos necessários para rodar o projeto devem estar no repositório do github;
 * Criar um pull request nesse repositório quando o código já tiver concluído;
 * Enviar um e-mail notificando que o teste foi concluído para posterior avaliação;
