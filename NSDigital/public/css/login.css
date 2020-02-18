@@ -49,7 +49,7 @@ body {
 .card .card-header {
   border: 0;
   background-color: rgba(0,0,0,.09);
-  border-bottom: 1px solid rgba(0,0,0,.5);
+  border-bottom: 1px solid rgba(0,0,0,.3);
 }
 
 .card .card-header .logo-container {
@@ -65,7 +65,7 @@ body {
 .card .card-body {
   padding: 15px 15px 10px;
   background-color: rgba(0,0,0,.09);
-  border-bottom: 1px solid rgba(0,0,0,.5);
+  border-bottom: 1px solid rgba(0,0,0,.3);
 }
 
 .card-plain {
@@ -106,7 +106,6 @@ body {
 
 .card-footer {
   background-color: rgba(0,0,0,.09);
-  border-top: 1px solid rgba(0,0,0,.5);
 }
 
 .card-footer a {
