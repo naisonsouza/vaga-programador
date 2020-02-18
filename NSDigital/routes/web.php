@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/demo', function () {
-    return view('demo');
- });
+Route::get('/login', 'Auth\LoginController@index');
 
-Route::get('/login', 'Auth\LoginController@loginView');
+Route::get('/dashboard', 'Dashboard\DashboardController@index');
