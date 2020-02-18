@@ -1,0 +1,167 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('../image/background_music.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; 
+  font-size: 14px;
+  font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+}
+
+.navbar .navbar-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  text-transform: uppercase;
+  font-size: .8571em;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  line-height: 1.625rem;
+  color: white;
+  margin-left: 5%;
+}
+
+
+
+/* CONTENT STYLES */
+
+.login-page .card-login {
+  border-radius: .25rem;
+  padding-bottom: .7rem;
+}
+
+.card {
+  border: 0;
+  border-radius: .1875rem;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 15px 1px rgba(39,39,39,.1);
+}
+
+.card .card-header {
+  border: 0;
+  background-color: rgba(0,0,0,.09);
+  border-bottom: 1px solid rgba(0,0,0,.5);
+}
+
+.card .card-header .logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card .card-header .logo-container h3 {
+  color: white;
+}
+
+.card .card-body {
+  padding: 15px 15px 10px;
+  background-color: rgba(0,0,0,.09);
+  border-bottom: 1px solid rgba(0,0,0,.5);
+}
+
+.card-plain {
+  background: transparent;
+  box-shadow: none;
+}
+
+.form-control {
+  border: 1px solid #e3e3e3;
+  border-radius: 30px;
+  color: white;
+  line-height: normal;
+  height: auto;
+  font-size: .8571em;
+  box-shadow: none;
+}
+
+.form-group, .input-group {
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
+
+.form-control-lg {
+  height: calc(1.5em + 1rem + 2px);
+  padding: .5rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+}
+
+.card-footer {
+  background-color: rgba(0,0,0,.09);
+  border-top: 1px solid rgba(0,0,0,.5);
+}
+
+.card-footer a {
+  border: 1px solid #F96332;
+  background-color: #F96332;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.card-footer a:hover {
+  background-color: white;
+  color: #F96332;
+  border: 1px solid white;
+}
+
+
+/* FOOTER STYLES */
+
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  padding: 24px 0;
+  display: block;
+}
+
+.footer .container-fluid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .container-fluid nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.footer .container-fluid nav ul li {
+  padding: 10px;
+}
+
+.footer .container-fluid .copyright {
+  display: flex;
+  flex-direction: row;
+  padding-right: 5%;
+  color: white
+}
+
+.footer .container-fluid .copyright a { 
+  color: #F96332;
+  font-size: 14px;
+  font-weight: bold;
+}
