@@ -154,11 +154,14 @@ section .group-artists .indicate-artists-image {
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
 }
 
 section .indicate-artists-image i {
   color: white;
-  font-size: 40px;
+  font-size: 30px;
 }
 
 section .group-artists .indicate-artists-info {
@@ -206,6 +209,9 @@ section .group-albuns .shortcut-create-album {
   background-color: white;
   align-self: flex-end;
   margin-right: 20px;
+  -webkit-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
 }
 
 section .group-albuns .shortcut-create-album i { 
