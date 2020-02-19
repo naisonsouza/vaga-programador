@@ -117,7 +117,8 @@ section .tab-pages a:hover {
 }
 
 section .tab-pages .active {
- border-bottom: 2px solid #1ABB9C;
+  border-bottom: 2px solid #1ABB9C;
+  color: #FFF;
 }
 
 section .container-overview {

@@ -10,9 +10,46 @@ section .container-table-artists .table {
   background-color: #14151D;
 }
 
-section  .container-table-artists .table .button-action { 
+section .container-table-artists .table .button-action { 
   background-color: transparent;
   border: 0;
   color: white;
   font-size: 18px;
+}
+
+section .button-action {
+  margin: 5px;
+}
+
+section .button-action:hover { 
+  text-decoration: none;
+}
+
+section .container-form {
+  background-color: #14151D;
+  height: 400px;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container-form form label {
+  color: #FFF;
+  font-size: 18px;
+}
+
+section .container-form .container-form-button { 
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+section .container-form .container-form-button button { 
+  background-color: #F96332;
+  width: 30%;
+  font-weight: bold;
+  border: 0;
 }
