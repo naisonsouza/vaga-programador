@@ -4,8 +4,9 @@
   <section class="container">
     <h2 class="page-title">Painel de Controle</h2>
     <div class="tab-pages">
-      <a href="#" class="active">Overview</a>
-      <a href="#">Artistas</a>
+      <a href="{{ route('dashboard') }}" class="active">Overview</a>
+      <a href="{{ route('artists') }}">Artistas</a>
+      <a href="{{ route('albuns') }}">Albuns</a>
     </div>
     <div class="row container-overview">
       <div class="col-md-3">
