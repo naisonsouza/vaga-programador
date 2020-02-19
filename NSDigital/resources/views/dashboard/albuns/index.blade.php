@@ -4,7 +4,7 @@
   <section class="container">
     {{-- @include('dashboard.header-forms') --}}
 
-    <h2 class="page-title">Painel de Controle</h2>
+    <h2 class="page-title">Painel de Controle - Albuns</h2>
     <div class="tab-pages">
       <a href="{{ route('dashboard') }}">Overview</a>
       <a href="{{ route('artists') }}">Artistas</a>
