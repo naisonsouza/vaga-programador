@@ -1,0 +1,219 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #1D1D31;
+  font-size: 14px;
+  font-family: Montserrat,Helvetica Neue,Arial,sans-serif;
+}
+
+
+/* HEADER STYLES */
+
+header {
+  width: 100%;
+  height: 10%;
+  background-color: #141428;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+header .navbar-brand {
+  text-transform: uppercase;
+  font-size: .8571em;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  line-height: 1.625rem;
+  color: white;
+  margin-left: 5%;
+  align-self: flex-start;
+}
+
+header .menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  width: 60%;
+}
+
+header ul li { 
+  margin-left: 40px;
+  margin-right: 40px;
+  
+}
+
+header ul li a { 
+  color: #7D8583;
+  font-weight: bold;
+}
+
+header ul li a:hover {
+  color: #1ABB9C;
+}
+
+header ul .active { 
+  color: #1ABB9C;
+}
+
+header .search-bar-container {
+  background-color: #14151D;
+  margin-right: 20px;
+  height: 70%;
+}
+
+header .search-bar-container .search-bar {
+  background-color: #14151D;
+  border: 0px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+header .search-bar-container button { 
+  background-color: transparent;
+  border: 0px;
+}
+
+header .search-bar-container button i { 
+  color: #7D8583;
+}
+
+
+/* CONTENT STYLES */
+
+section .page-title {
+  color: white;
+  margin-top: 20px;
+}
+
+section .tab-pages {
+  margin-top: 30px;
+  margin-left: 50px;
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section .tab-pages a { 
+  color: #7D8583;
+  font-size: 22px;
+}
+
+section .tab-pages a:hover { 
+  color: #FFF;
+  text-decoration: none;
+}
+
+section .tab-pages .active {
+ border-bottom: 2px solid #1ABB9C;
+}
+
+section .container-overview {
+  height: 400px;
+  margin-top: 20px;
+}
+
+section .group-artists {
+  background-color: #272128;
+  height: 70%;
+  -webkit-box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  -moz-box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+section .group-artists .group-artists-header {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+section .group-artists .indicate-artists-image {
+  width: 20%;
+  height: 40%;
+  border-radius: 5px;
+  background-color: #141428;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+}
+
+section .indicate-artists-image i {
+  color: white;
+  font-size: 30px;
+}
+
+section .group-artists .indicate-artists-info {
+  margin-left: 15px;
+}
+
+section .group-artists .indicate-artists-info h5 {
+  color: white;
+  font-size: 28px;
+}
+
+section .group-artists .indicate-artists-info p { 
+  color: white;
+  font-size: 12px;
+}
+
+section .group-albuns { 
+  background-color: #7159C1;
+  height: 40%;
+  -webkit-box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  -moz-box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+section .group-albuns a {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+section .group-albuns a:hover {
+  text-decoration: none;
+}
+
+section .group-albuns .shortcut-create-album {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 0;
+  background-color: white;
+  align-self: flex-end;
+  margin-right: 20px;
+  -webkit-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 6px 8px 0px rgba(0,0,0,0.75);
+}
+
+section .group-albuns .shortcut-create-album i { 
+  color: #7159C1;
+}
