@@ -16,6 +16,11 @@ class ArtistController extends Controller
     {
         return view('dashboard.artists.index');
     }
+    
+    public function viewArtistForm()
+    {
+        return view('dashboard.artists.artist-create');
+    }    
 
     /**
      * Show the form for creating a new resource.
