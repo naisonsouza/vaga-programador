@@ -1,0 +1,18 @@
+section .container-table-artists {
+  background-color: #14151D;
+  height: 400px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+section .container-table-artists .table { 
+  margin-top: 20px;
+  background-color: #14151D;
+}
+
+section  .container-table-artists .table .button-action { 
+  background-color: transparent;
+  border: 0;
+  color: white;
+  font-size: 18px;
+}
