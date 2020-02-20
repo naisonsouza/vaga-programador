@@ -4,14 +4,14 @@
   <section class="container">
     {{-- @include('dashboard.header-forms') --}}
 
-    <h2 class="page-title">Cadastrar novo Album</h2>
+    <h2 class="page-title">Cadastrar novo Álbum</h2>
     <div class="tab-pages">
       <a href="{{ route('albuns') }}">
         <i class="fas fa-arrow-left"></i> Voltar
       </a>
       <a href="#"></a>
 
-      <a href="{{ route('new-album') }}" class="active">Album</a>
+      <a href="{{ route('new-album') }}" class="active">Álbum</a>
     </div>
 
     <div class="row container-form">
@@ -20,13 +20,13 @@
           <label for="image-album" class="label-input-file">
             <i class="fas fa-music"></i>
             
-            <span id="file-name">Imagem</span>
+            <span id="file-name">Imagem do Álbum</span>
           </label>
           <input type="file" id="image-album" name="image-album" class="form-control-file" />
         </div>
         <div class="form-input-title">
           {{-- <label for="title-album">Titúlo do Album</label> --}}
-          <input type="text" id="title-album" name="title-album" class="form-control-file" aria-describedby="formlHelp" placeholder="Titúlo" />
+          <input type="text" id="title-album" name="title-album" class="form-control-file" aria-describedby="formlHelp" placeholder="Titúlo do Álbum..." />
         </div>
         <small id="formlHelp" class="form-text text-muted">Antes de salvar, adicione música(s) ao lado.</small>
 

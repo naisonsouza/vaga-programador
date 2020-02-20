@@ -4,13 +4,13 @@
   <section class="container">
     {{-- @include('dashboard.header-forms') --}}
 
-    <h2 class="page-title">Album - Summer</h2>
+    <h2 class="page-title">Álbum - Summer</h2>
     <div class="tab-pages">
       <a href="{{ route('albuns') }}">
         <i class="fas fa-arrow-left"></i> Voltar
       </a>
       <a href="#"></a>
-      <a href="{{ route('album') }}" class="active">Album</a>
+      <a href="{{ route('album') }}" class="active">Álbum</a>
     </div>
 
     <div class="row container-table-artists">

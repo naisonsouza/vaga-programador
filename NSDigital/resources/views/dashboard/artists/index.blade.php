@@ -27,9 +27,6 @@
               <td>Mark</td>
               <td>
                 <a href="{{ route('new-artist') }}" class="button-action">
-                  <i class="fas fa-plus-circle"></i>
-                </a>
-                <a href="{{ route('new-artist') }}" class="button-action">
                   <i class="fas fa-trash"></i>
                 </a>
               </td>
