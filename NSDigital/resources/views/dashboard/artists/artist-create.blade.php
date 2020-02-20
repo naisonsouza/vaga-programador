@@ -19,13 +19,13 @@
         <form action="">
           <div class="form-group">
             <label for="name">Nome</label>
-            <input type="text" class="form-control" id="nameHelp" aria-describedby="emailHelp" placeholder="Nome do Artista">
+            <input type="text" class="form-control" id="nameHelp" aria-describedby="emailHelp" placeholder="Nome do Artista" />
             <small id="emailHelp" class="form-text text-muted">Informe o nome do artista para cadastro.</small>
           </div>
 
           <div class="form-group">
             <label for="inputFile">Imagem do Artista</label>
-            <input type="file" class="form-control-file" id="inputFile">
+            <input type="file" class="form-control-file" id="inputFile" />
           </div>
 
           <div class="container-form-button">
