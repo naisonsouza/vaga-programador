@@ -15,6 +15,13 @@ class CreateAlbumsTable extends Migration
     {
         Schema::create('albums', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title', 100);
+            $table->string('filename')->nullable();
+            $table->string('original_filename')->nullable();
+
+            $table->unsignedBigInteger('artists_id');
+            $table->foreign('artists_id')->references('id')->on('artists');
+
             $table->timestamps();
         });
     }
