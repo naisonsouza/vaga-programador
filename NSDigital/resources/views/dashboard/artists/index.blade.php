@@ -38,6 +38,11 @@
         </table>
         
       </div>
+
+      <a href="{{ route('new-artist') }}" class="btn-create-album">
+        <i class="fas fa-plus-circle"></i>
+        Criar Novo Artista
+      </a>
     </div>
 
   </section>
