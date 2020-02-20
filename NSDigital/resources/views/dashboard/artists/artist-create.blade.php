@@ -16,7 +16,8 @@
 
     <div class="row">
       <div class="col-md-12 container-form">
-        <form action="">
+        <form method="post" action="{{url('/books')}}" enctype="multipart/form-data">
+          {{ csrf_field() }}
           <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" class="form-control" id="nameHelp" aria-describedby="emailHelp" placeholder="Nome do Artista" />
@@ -25,7 +26,7 @@
 
           <div class="form-group">
             <label for="inputFile">Imagem do Artista</label>
-            <input type="file" class="form-control-file" id="inputFile" />
+            <input type="file" class="form-control-file" id="inputFile" name="artist_image" />
           </div>
 
           <div class="container-form-button">

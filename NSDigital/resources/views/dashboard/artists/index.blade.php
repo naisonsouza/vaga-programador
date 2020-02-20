@@ -17,6 +17,7 @@
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Imagem</th>
               <th scope="col">Nome</th>
               <th scope="col">Ações</th>
             </tr>
@@ -24,6 +25,9 @@
           <tbody>
             <tr>
               <th scope="row">1</th>
+              <td>
+                <img src="{{url('uploads/ns_logo.png')}}" />
+              </td>
               <td>Mark</td>
               <td>
                 <a href="{{ route('new-artist') }}" class="button-action">
