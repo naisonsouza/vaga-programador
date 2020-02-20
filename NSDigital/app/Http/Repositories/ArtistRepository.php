@@ -13,4 +13,26 @@ class ArtistRepository extends BaseRepository
   public function newArtist($data) {
     return Artist::create($data);
   }
+
+  public function updateArtist(Request $request) {
+    $artist = Artist::find($request->id);
+
+    if(!$artist) 
+      return 0;
+
+    $artist->fill($request->all());
+    $artist->save();
+
+    return 1;
+  }
+
+  public function destroyArtist($id) {
+    $artist = Artist::find($id);
+
+    if(!$artist) 
+      return 0;
+
+    $artist->delete();
+    return 1;
+  }
 }
