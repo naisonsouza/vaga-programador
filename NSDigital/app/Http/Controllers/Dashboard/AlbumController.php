@@ -22,6 +22,11 @@ class AlbumController extends Controller
         return view('dashboard.albuns.album-detail');
     }
 
+    public function viewAlbumForm()
+    {
+        return view('dashboard.albuns.album-create');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
