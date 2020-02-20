@@ -4,9 +4,23 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Repositories\ArtistRepository;
 
 class ArtistController extends Controller
 {
+    protected $artists;
+
+    /**
+     * Create a new repository instance.
+     *
+     * @param  ArtistRepository  $artists
+     * @return void
+     */
+    public function __construct(ArtistRepository $artists)
+    {
+        $this->artists = $artists;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +54,27 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validatedData = $request->validate([
+                'name'=>'required',
+            ]);
+            
+            $image = $request->file('artist_image');
+            $extension = $image->getClientOriginalExtension();
+            $validatedData->original_filename = $image->getClientOriginalName();
+            $validatedData->filename = $image->getFilename().'.'.$extension;
+        
+            Storage::disk('storage')->put(
+                $image->getFilename().'.'.$extension, File::get($image)
+            );
+        
+            $this->artists->newArtist($validatedData);
+
+            return response()->json(['success', 200]);
+            
+        } catch(Exception $e) {
+            return response()->json(['error' => $e->getMessage(), 401]);
+        }
     }
 
     /**
@@ -69,22 +103,29 @@ class ArtistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artist $artist)
+    public function update(Request $request)
     {
-        //
+        if ($this->artists->updateArtist($request) == 1) {
+            return response()->json(['success', 200]);
+        } else {
+            return response()->json(['error' => $e->getMessage(), 401]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Artist  $artist
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artist $artist)
+    public function destroy($id)
     {
-        //
+        if ($this->artists->destroyArtist($id) == 1) {
+            return response()->json([ 'message' => 'Successful' ], 200);
+        } else {
+            return response()->json([ 'message' => 'Error' ], 404);
+        }
     }
 }
