@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlbumsTable extends Migration
+class CreateAlbunsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateAlbumsTable extends Migration
      */
     public function up()
     {
-        Schema::create('albums', function (Blueprint $table) {
+        Schema::create('albuns', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 100);
             $table->string('filename')->nullable();
             $table->string('original_filename')->nullable();
 
-            $table->unsignedBigInteger('artists_id');
-            $table->foreign('artists_id')->references('id')->on('artists');
+            $table->unsignedBigInteger('artist_id');
+            $table->foreign('artist_id')->references('id')->on('artists');
 
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class CreateAlbumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums');
+        Schema::dropIfExists('albuns');
     }
 }
