@@ -31,48 +31,9 @@
               <td>Willian Marciel</td>
               <td>
                 <button type="button" class="button-action">
-                  <i class="fas fa-plus-circle"></i>
-                </button>
-                <button type="button" class="button-action">
                   <i class="fas fa-trash"></i>
                 </button>
                 <a href="{{ route('album') }}" class="button-action">
-                  <i class="fas fa-search"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">
-                <img class="image-album" />
-              </td>
-              <td>Jacob</td>
-              <td>Jacob</td>
-              <td>
-                <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="button-action">
-                  <i class="fas fa-plus-circle"></i>
-                </button>
-                <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="button-action">
-                  <i class="fas fa-trash"></i>
-                </button>
-                <button type="button" class="button-action">
-                  <i class="fas fa-search"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">
-                <img class="image-album" />
-              </td>
-              <td>Larry</td>
-              <td>Larry</td>
-              <td>
-                <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="button-action">
-                  <i class="fas fa-plus-circle"></i>
-                </button>
-                <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" class="button-action">
-                  <i class="fas fa-trash"></i>
-                </button>
-                <button type="button" class="button-action">
                   <i class="fas fa-search"></i>
                 </button>
               </td>
@@ -81,6 +42,11 @@
         </table>
         
       </div>
+
+      <a href="{{ route('new-album') }}" class="btn-create-album">
+        <i class="fas fa-plus-circle"></i>
+        Criar Novo Album
+      </a>
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
