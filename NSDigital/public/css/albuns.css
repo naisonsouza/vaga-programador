@@ -38,6 +38,13 @@ section .form-album {
   border-right: solid 2px #1D1D31;
 }
 
+section .form-album form { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 section .form-album .label-input-file {
   background-color: #1D1D31;
   display: flex;
@@ -60,9 +67,13 @@ section .form-album .label-input-file i {
   font-size: 36px;
 }
 
+section .form-album #music-name {
+  font-size: 24px;
+}
+
 section .form-album label { 
   color: #FFF;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 section .form-album .form-input-file input {
@@ -91,6 +102,14 @@ section .form-album .form-input-title input {
 section .form-album .form-input-title input::placeholder {
   color: #FFF;
   padding: 10px;
+}
+
+section .container-form .form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 section .container-form .container-form-button {
