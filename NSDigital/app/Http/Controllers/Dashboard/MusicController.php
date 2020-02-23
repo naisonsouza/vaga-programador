@@ -4,9 +4,23 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Repositories\MusicRepository;
 
 class MusicController extends Controller
 {
+    protected $musics;
+
+    /**
+     * Create a new repository instance.
+     *
+     * @param  MusicRepository  $musics
+     * @return void
+     */
+    public function __construct(MusicRepository $musics)
+    {
+        $this->musics = $musics;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +49,19 @@ class MusicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validatedData = $request->validate([
+                'music_file'=>'required',
+            ]);
+            
+            $music_archive = $request->file('music_file');
+            $music_name = $request->title_music;
+
+            return response()->json(['success', 200]);
+            
+        } catch(Exception $e) {
+            return response()->json(['error' => $e->getMessage(), 401]);
+        }
     }
 
     /**
@@ -78,8 +104,12 @@ class MusicController extends Controller
      * @param  \App\Model\Music  $music
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Music $music)
+    public function destroy($id)
     {
-        //
+        if ($this->musics->destroyMusic($id) == 1) {
+            return response()->json([ 'message' => 'Successful' ], 200);
+        } else {
+            return response()->json([ 'message' => 'Error' ], 404);
+        }
     }
 }
