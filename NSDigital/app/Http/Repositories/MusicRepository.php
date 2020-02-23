@@ -13,4 +13,14 @@ class MusicRepository extends BaseRepository
   public function newMusic($data) {
     return Music::create($data);
   }
+
+  public function destroyMusic($id) {
+    $music = Music::find($id);
+
+    if(!$music) 
+      return 0;
+
+    $music->delete();
+    return 1;
+  }
 }
