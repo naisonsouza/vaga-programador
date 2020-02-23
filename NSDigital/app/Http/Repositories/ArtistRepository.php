@@ -10,17 +10,23 @@ class ArtistRepository extends BaseRepository
 {
   protected $modelClass = Artist::class;
 
+  public function listArtists() {
+    return Artist::all();
+  }
+
   public function newArtist($data) {
     return Artist::create($data);
   }
 
-  public function updateArtist(Request $request) {
-    $artist = Artist::find($request->id);
+  public function updateArtist(Request $request, $id) {
+    $artist = Artist::find($id);
 
     if(!$artist) 
       return 0;
 
-    $artist->fill($request->all());
+    $artist->name = $request->name;
+    $artist->filename = $request->filename;
+    $artist->original_filename = $request->original_filename;
     $artist->save();
 
     return 1;
@@ -34,5 +40,9 @@ class ArtistRepository extends BaseRepository
 
     $artist->delete();
     return 1;
+  }
+
+  public function findArtist($id) {
+    return Artist::find($id);
   }
 }
