@@ -13,4 +13,26 @@ class AlbumRepository extends BaseRepository
   public function newAlbum($data) {
     return Album::create($data);
   }
+
+  public function updateAlbum(Request $request) {
+    $album = Album::find($request->id);
+
+    if(!$album) 
+      return 0;
+
+    $album->fill($request->all());
+    $album->save();
+
+    return 1;
+  }
+
+  public function destroyAlbum($id) {
+    $album = Album::find($id);
+
+    if(!$album) 
+      return 0;
+
+    $album->delete();
+    return 1;
+  }
 }
