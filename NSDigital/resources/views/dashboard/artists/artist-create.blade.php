@@ -16,23 +16,9 @@
 
     <div class="row">
       <div class="col-md-12 container-form">
-        <form method="post" action="{{url('/books')}}" enctype="multipart/form-data">
-          {{ csrf_field() }}
-          <div class="form-group">
-            <label for="name">Nome</label>
-            <input type="text" class="form-control" id="nameHelp" aria-describedby="emailHelp" placeholder="Nome do Artista" />
-            <small id="emailHelp" class="form-text text-muted">Informe o nome do artista para cadastro.</small>
-          </div>
+        
+        @include('dashboard.artists.artist-form', ['page' => 'new'])
 
-          <div class="form-group">
-            <label for="inputFile">Imagem do Artista</label>
-            <input type="file" class="form-control-file" id="inputFile" name="artist_image" />
-          </div>
-
-          <div class="container-form-button">
-            <button type="submit" class="btn btn-primary">Enviar</button>
-          </div>
-        </form>
       </div>
     </div>
 
