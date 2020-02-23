@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Repositories\ArtistRepository;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class ArtistController extends Controller
 {
@@ -28,7 +30,8 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        return view('dashboard.artists.index');
+        $artists = $this->listArtists();
+        return view('dashboard.artists.index')->with('artists', $artists);
     }
     
     public function viewArtistForm()
@@ -61,16 +64,17 @@ class ArtistController extends Controller
             
             $image = $request->file('artist_image');
             $extension = $image->getClientOriginalExtension();
-            $validatedData->original_filename = $image->getClientOriginalName();
-            $validatedData->filename = $image->getFilename().'.'.$extension;
-        
-            Storage::disk('storage')->put(
-                $image->getFilename().'.'.$extension, File::get($image)
+            $validatedData["original_filename"] = $image->getClientOriginalName();
+            $validatedData["filename"] = $image->getFilename().'.'.$extension;
+
+            Storage::disk('public')->put(
+                'artist/'.$image->getFilename().'.'.$extension, File::get($image)
             );
         
             $this->artists->newArtist($validatedData);
 
-            return response()->json(['success', 200]);
+            return redirect('artists')->with(['success']);
+            // return response()->json(['success', 200]);
             
         } catch(Exception $e) {
             return response()->json(['error' => $e->getMessage(), 401]);
@@ -80,23 +84,23 @@ class ArtistController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Artist  $artist
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Artist $artist)
+    public function show($id)
     {
-        //
+        return $this->artists->findArtist($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Artist  $artist
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artist $artist)
+    public function edit($id)
     {
-        //
+        return $this->artists->findArtist($id);
     }
 
     /**
@@ -105,12 +109,19 @@ class ArtistController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        if ($this->artists->updateArtist($request) == 1) {
-            return response()->json(['success', 200]);
+        $image = $request->file('artist_image');
+        $extension = $image->getClientOriginalExtension();
+        $request->original_filename = $image->getClientOriginalName();
+        $request->filename = $image->getFilename().'.'.$extension;
+
+        Storage::disk('public')->put('artist/'.$image->getFilename().'.'.$extension, File::get($image));
+
+        if ($this->artists->updateArtist($request, $id) == 1) {
+            return redirect('artists')->with(['success']);
         } else {
-            return response()->json(['error' => $e->getMessage(), 401]);
+            return response()->json(['error' => 'erro', 401]);
         }
     }
 
@@ -127,5 +138,9 @@ class ArtistController extends Controller
         } else {
             return response()->json([ 'message' => 'Error' ], 404);
         }
+    }
+
+    public function listArtists() {
+        return $this->artists->listArtists();
     }
 }
