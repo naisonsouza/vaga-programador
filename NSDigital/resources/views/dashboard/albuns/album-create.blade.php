@@ -15,68 +15,71 @@
     </div>
 
     <div class="row container-form">
-      <div class="col-md-4 form-album">
-        <div class="form-input-file">
-          <label for="image-album" class="label-input-file">
-            <i class="fas fa-music"></i>
-            
-            <span id="file-name">Imagem do Álbum</span>
-          </label>
-          <input type="file" id="image-album" name="image-album" class="form-control-file" />
-        </div>
-        <div class="form-input-title">
-          {{-- <label for="title-album">Titúlo do Album</label> --}}
-          <input type="text" id="title-album" name="title-album" class="form-control-file" aria-describedby="formlHelp" placeholder="Titúlo do Álbum..." />
-        </div>
-        <small id="formlHelp" class="form-text text-muted">Antes de salvar, adicione música(s) ao lado.</small>
+      <form class="form" method="post" action="{{url('api/album')}}" enctype="multipart/form-data">
 
-        <div class="container-form-button">
-          <button type="submit" class="btn btn-primary">Salvar</button>
+        <div class="col-md-4 form-album">
+          <div class="form-input-file">
+            <label for="image-album" class="label-input-file">
+              <i class="fas fa-compact-disc"></i>
+              
+              <span id="file-name">Imagem do Álbum</span>
+            </label>
+            <input type="file" id="image-album" name="image-album" class="form-control-file" />
+          </div>
+          <div class="form-input-title">
+            {{-- <label for="title-album">Titúlo do Album</label> --}}
+            <input type="text" id="title-album" name="title_album" class="form-control-file" aria-describedby="formlHelp" placeholder="Titúlo do Álbum..." />
+          </div>
+          <small id="formlHelp" class="form-text text-muted">Antes de salvar, adicione música(s) ao lado.</small>
+
+          <div class="container-form-button">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+          
         </div>
-      </div>
-      <div class="col-md-7">
-        <div class="form-music">
-          <div class="form-music-input-container">
-            <div class="form-input">
-              <input type="text" id="title-album" name="title-album" class="input-title-music" aria-describedby="formlHelp" placeholder="Titúlo da música..." />
+        <div class="col-md-7">
+          <div class="form-music">
+            <div class="form-music-input-container">
+              <div class="form-input">
+                <input type="text" id="title_music" name="title_music" class="input-title-music" aria-describedby="formlHelp" placeholder="Titúlo da música..." />
+              </div>
+
+              <div class="form-input-file">
+                <label for="music_file" class="label-input-file">
+                  <i class="fa fa-save"></i>
+                  <span id="music-name">Escolher o arquivo...</span>
+                </label>
+                <input type="file" id="music_file" name="music_file" class="form-control-file" />
+              </div>
             </div>
 
-            <div class="form-input-file">
-              <label for="music-file" class="label-input-file">
-                <i class="fa fa-save"></i>
-                <span id="music-name">Escolher o arquivo...</span>
-              </label>
-              <input type="file" id="music-file" name="music-file" class="form-control-file" />
-            </div>
+            <a href="#" id="btn-add-music">
+              <i class="fas fa-plus-circle"></i>
+            </a>
           </div>
 
-          <a href="#" id="btn-add-music">
-            <i class="fas fa-plus-circle"></i>
-          </a>
+          <div class="table-musics table-responsive table-hover">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <i class="fa fa-music"></i>
+                  </th>
+                  <th scope="col">Titúlo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td scope="row">
+                    <i class="fa fa-music"></i>
+                  </td>
+                  <td>Summer</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-
-        <div class="table-musics table-responsive table-hover">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">
-                  <i class="fa fa-music"></i>
-                </th>
-                <th scope="col">Titúlo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td scope="row">
-                  <i class="fa fa-music"></i>
-                </td>
-                <td>Summer</td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-      </div>
+      </form>
       {{-- <div class="col-md-1 container-table-actions">
         <a href="#" id="btn-add-music" class="table-actions">
           <i class="fas fa-plus-circle"></i>
