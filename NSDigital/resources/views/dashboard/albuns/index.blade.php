@@ -12,8 +12,8 @@
     </div>
 
     <div class="row container-table-artists">
-      <div class="col-md-12 table-responsive">
-        <table class="table table-dark table-bordered table-hover">
+      <div class="col-md-12 table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table table-dark table-bordered table-hover mb-0">
           <thead>
             <tr>
               <th scope="col"></th>
@@ -48,6 +48,8 @@
         Criar Novo Album
       </a>
     </div>
+
+    <input type="hidden" id="page" value="artist" />
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
