@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.layout')
+@extends('layouts.dashboard.artists-layout')
 
 @section('content')
   <section class="container">
@@ -96,3 +96,4 @@
 
   </section>
 @endsection
+
