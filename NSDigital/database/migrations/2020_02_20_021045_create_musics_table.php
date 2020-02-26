@@ -19,7 +19,7 @@ class CreateMusicsTable extends Migration
             $table->binary('archive');
 
             $table->unsignedBigInteger('album_id');
-            $table->foreign('album_id')->references('id')->on('albuns');
+            $table->foreign('album_id')->references('id')->on('albuns')->onDelete('cascade');
 
             $table->timestamps();
         });
