@@ -32,6 +32,9 @@
                 </td>
                 <td>{{$artist->name}}</td>
                 <td class="actions">
+                  <a href="{{ route('new-album', ['id' => $artist->id]) }}" id="{{$artist->id}}" class="button-action">
+                    <i class="fas fa-compact-disc"></i>
+                  </a>
                   <a href="#" id="{{$artist->id}}" class="button-action edit_button">
                     <i class="fas fa-edit"></i>
                   </a>
@@ -59,7 +62,6 @@
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
-
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header">
@@ -73,11 +75,9 @@
           <br /><br />
         </div>
       </div>
-
     </div>
 
     <div id="viewModal" class="modal">
-
       <!-- Modal content -->
       <div class="modal-content">
         <div class="modal-header">
@@ -91,7 +91,6 @@
           <br /><br />
         </div>
       </div>
-
     </div>
 
   </section>
