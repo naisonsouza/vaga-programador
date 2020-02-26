@@ -2,9 +2,7 @@
   var modal = document.getElementById("modalArtists");
   var span = document.getElementsByClassName("close")[0];
 
-  if (span) {
-    span.onclick = function() { modal.style.display = "none"; }
-  }
+  if (span) { span.onclick = function() { modal.style.display = "none"; } }
   window.onclick = function(event) {
     if (event.target == modal) { modal.style.display = "none"; }
   }
@@ -44,5 +42,17 @@
       musicsTitleArray.push($(this).find('.music_title_td').html()+' -'); 
     });
     $('#musics_title_array').val(musicsTitleArray);
+  });
+
+  $('.remove_button').click(function() {
+    var tr = $(this).closest('tr'), del_id = $(this).attr('id');
+    if(confirm("Tem certeza que deseja deletar esse álbum? "))
+    { 
+      $.ajax({
+        type: 'delete', url: 'http://127.0.0.1:8000/api/album/'+ del_id,
+        success: function (data) { tr.fadeOut(1000, function(){ $(this).remove(); }); },
+        error: function (data) { console.log(data); }
+      });
+    }
   });
 </script>
