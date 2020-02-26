@@ -11,7 +11,11 @@ class MusicRepository extends BaseRepository
   protected $modelClass = Music::class;
 
   public function newMusic($data) {
-    return Music::create($data);
+    try {
+      return Music::create($data);
+    } catch(Exception $e) {
+      return response()->json(['error' => $e->getMessage(), 401]);
+    }
   }
 
   public function destroyMusic($id) {
