@@ -10,6 +10,10 @@ class AlbumRepository extends BaseRepository
 {
   protected $modelClass = Album::class;
 
+  public function listAlbuns() {
+    return Album::with('artist')->get();
+  }
+
   public function newAlbum($data) {
     return Album::create($data);
   }
