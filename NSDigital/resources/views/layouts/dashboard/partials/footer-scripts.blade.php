@@ -5,10 +5,12 @@
 <script> 
   var $input = document.getElementById('album_image'), 
   $fileName = document.getElementById('filename');
-  var $inputMusic = document.getElementById('music_file'), 
-  $musicName = document.getElementById('music_name');
+  // var $inputMusic = document.getElementById('music_file'), 
+  // $musicName = document.getElementById('music_name');
   
-  $(document).on('change', $input, function() { $fileName.textContent = $input.value; });
+  if ($input) {
+    $(document).on('change', $input, function() { $fileName.textContent = $input.value; });
+  }
   // $(document).on('change', $inputMusic, function() { $musicName.textContent = $inputMusic.value; });
 
 </script>
