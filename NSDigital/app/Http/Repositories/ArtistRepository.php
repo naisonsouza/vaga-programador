@@ -21,7 +21,7 @@ class ArtistRepository extends BaseRepository
   public function updateArtist(Request $request, $id) {
     $artist = Artist::find($id);
 
-    if(!$artist) 
+    if(!$artist)
       return 0;
 
     $artist->name = $request->name;
