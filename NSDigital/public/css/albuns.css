@@ -4,7 +4,7 @@ section .container-table-artists {
   align-items: center;
 }
 
-section .container-table-artists .image-album {
+section .container-table-artists .album_image {
   width: 50px;
   height: 50px;
   background-color: #CCCCCC;
@@ -67,8 +67,8 @@ section .form-album .label-input-file i {
   font-size: 36px;
 }
 
-section .form-album #music-name {
-  font-size: 24px;
+section .form-album #music_name {
+  font-size: 20px;
 }
 
 section .form-album label { 
@@ -175,6 +175,15 @@ section .container-form .form-music #btn-add-music {
   color: #1ABB9C;
 }
 
+section .container-form .form-music #btn-add-music i {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
 section .container-form .table-musics {
   height: 300px;
   width: 100%;
@@ -204,4 +213,12 @@ section .container-form .container-table-actions i {
   font-size: 24px;
   color: #1ABB9C;
   margin: 5px;
+}
+
+.music_file_td {
+  display: none;
+}
+
+.music_size_file_td {
+  display: none;
 }
