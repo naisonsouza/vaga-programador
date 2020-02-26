@@ -75,6 +75,7 @@
             </table>
           </div>
         </div>
+        <input type="hidden" name="artist_id" value="{{app('request')->input('id')}}" />
       </form>
     </div>
 
