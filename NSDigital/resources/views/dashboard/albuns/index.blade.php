@@ -1,4 +1,4 @@
-@extends('layouts.dashboard.layout')
+@extends('layouts.dashboard.albuns-layout')
 
 @section('content')
   <section class="container">
@@ -46,7 +46,7 @@
         
       </div>
 
-      <a href="{{ route('new-album') }}" class="btn-create-album">
+      <a href="#" id="btn-create-album" class="btn-create-album">
         <i class="fas fa-plus-circle"></i>
         Criar Novo Album
       </a>
@@ -54,34 +54,30 @@
 
     <input type="hidden" id="page" value="artist" />
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="form-group">
-                <label for="recipient-name" class="col-form-label">Recipient:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-              <div class="form-group">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
-          </div>
+    <!-- The Modal -->
+    <div id="modalArtists" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Selecionar Artista</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="container_artists">
+              <label for="list_artits">Lista de Artistas</label>
+              <select name="list_artits" id="list_artits"></select>
+              <a id="btn-select-artist" href="#" class="btn-create-album">
+                Selecionar
+              </a>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <br /><br />
         </div>
       </div>
     </div>
-
+  
   </section>
 @endsection
