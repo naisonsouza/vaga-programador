@@ -5,20 +5,26 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Repositories\AlbumRepository;
+use App\Http\Controllers\Dashboard\MusicController;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class AlbumController extends Controller
 {
     protected $albuns;
+    protected $musics;
 
     /**
      * Create a new repository instance.
      *
      * @param  AlbumRepository  $albuns
+     * @param  MusicController  $musics
      * @return void
      */
-    public function __construct(AlbumRepository $albuns)
+    public function __construct(AlbumRepository $albuns, MusicController $musics)
     {
         $this->albuns = $albuns;
+        $this->musics = $musics;
     }
 
     /**
@@ -28,7 +34,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        return view('dashboard.albuns.index');
+        $albunsList = $this->listAlbuns();
+        return view('dashboard.albuns.index')->with('albuns', $albunsList);
     }
 
     public function viewAlbum()
@@ -51,6 +58,14 @@ class AlbumController extends Controller
         //
     }
 
+    public function header_log($data){
+        $bt = debug_backtrace();
+        $caller = array_shift($bt);
+        $line = $caller['line'];
+        $file = array_pop(explode('/', $caller['file']));
+        header('log_'.$file.'_'.$caller['line'].': '.json_encode($data));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -60,28 +75,20 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         try {
-            dd($request);
-
-            $validatedData = $request->validate([
-                'title_album'=>'required',
-            ]);
-            
-            $image = $request->file('image-album');
+            $validatedData = $request->validate([ 'title'=>'required' ]);            
+            $image = $request->file('album_image');
             $extension = $image->getClientOriginalExtension();
-            $validatedData->original_filename = $image->getClientOriginalName();
-            $validatedData->filename = $image->getFilename().'.'.$extension;
+            $validatedData["original_filename"] = $image->getClientOriginalName();
+            $validatedData["filename"] = $image->getFilename().'.'.$extension;
+
+            $validatedData["artist_id"] = 31;
         
-            Storage::disk('storage')->put(
-                $image->getFilename().'.'.$extension, File::get($image)
-            );
+            Storage::disk('public')->put('album/'.$image->getFilename().'.'.$extension, File::get($image));
 
             $album_id = $this->albuns->newAlbum($validatedData)->id;
-            
-            $music_archive = $request->file('music_file');
-            $music_name = $request->title_music;            
 
-            return response()->json(['success', 200]);
-            
+            $this->saveMusic($request, $album_id);
+            return redirect('albuns')->with(['success']);            
         } catch(Exception $e) {
             return response()->json(['error' => $e->getMessage(), 401]);
         }
@@ -137,5 +144,21 @@ class AlbumController extends Controller
         } else {
             return response()->json([ 'message' => 'Error' ], 404);
         }
+    }
+
+    public function saveMusic(Request $request, $album_id) {
+        $musics = explode('-,', $request->musics_title[0]);
+        $cont = 0;
+        foreach($request->file() as $file) {
+            if ($file->getMimeType() == "audio/mpeg") {
+                $content = base64_encode(file_get_contents($file));
+                $this->musics->saveMusic($musics[$cont], $content, $album_id);
+                $cont++;
+            }
+        }
+    }
+
+    public function listAlbuns() {
+        return $this->albuns->listAlbuns();
     }
 }
