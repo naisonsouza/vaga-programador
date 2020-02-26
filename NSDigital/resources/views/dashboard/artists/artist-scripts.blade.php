@@ -22,7 +22,6 @@
       success: function (data) {
         $('.artist_form').attr('id', 'artist_form_edit');
         $('#nameHelp').val(data.name);
-        $('#artist_form_edit').attr('id', 'artist_form_edit');
         $('#artist_form_edit').attr('action', 'http://127.0.0.1:8000/api/'+page+'/'+data.id);
         modal.style.display = "block";
       },
