@@ -32,7 +32,7 @@
                 <td>{{$album->title}}</td>
                 <td>{{$album->artist->name}}</td>
                 <td>
-                  <button type="button" class="button-action">
+                  <button id="{{$album->id}}" type="button" class="button-action remove_button">
                     <i class="fas fa-trash"></i>
                   </button>
                   <a href="{{ route('album') }}" class="button-action">
