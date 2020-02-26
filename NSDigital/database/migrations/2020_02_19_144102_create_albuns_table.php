@@ -20,7 +20,7 @@ class CreateAlbunsTable extends Migration
             $table->string('original_filename')->nullable();
 
             $table->unsignedBigInteger('artist_id');
-            $table->foreign('artist_id')->references('id')->on('artists');
+            $table->foreign('artist_id')->references('id')->on('artists')->onDelete('cascade');
 
             $table->timestamps();
         });
