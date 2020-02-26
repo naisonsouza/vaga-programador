@@ -32,6 +32,9 @@
                 <td>{{$album->title}}</td>
                 <td>{{$album->artist->name}}</td>
                 <td>
+                  <button id="{{$album->id}}" class="button-action edit_button">
+                    <i class="fas fa-edit"></i>
+                  </button>
                   <button id="{{$album->id}}" type="button" class="button-action remove_button">
                     <i class="fas fa-trash"></i>
                   </button>
@@ -72,6 +75,25 @@
               </a>
             </div>
           </form>
+        </div>
+        <div class="modal-footer">
+          <br /><br />
+        </div>
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="modalEditAlbum" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Editar</h2>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="row container-form">
+            @include('dashboard.albuns.album-form', ['page' => 'edit'])
+          </div>
         </div>
         <div class="modal-footer">
           <br /><br />
