@@ -30,8 +30,8 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        $artists = $this->listArtists();
-        return view('dashboard.artists.index')->with('artists', $artists);
+        $artistsList = $this->listArtists();
+        return view('dashboard.artists.index')->with('artists', $artistsList);
     }
     
     public function viewArtistForm()
