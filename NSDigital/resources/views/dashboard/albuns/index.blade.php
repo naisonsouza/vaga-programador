@@ -23,21 +23,24 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td scope="row">
-                <img class="image-album" />
-              </td>
-              <td>Summer</td>
-              <td>Willian Marciel</td>
-              <td>
-                <button type="button" class="button-action">
-                  <i class="fas fa-trash"></i>
-                </button>
-                <a href="{{ route('album') }}" class="button-action">
-                  <i class="fas fa-search"></i>
-                </button>
-              </td>
-            </tr>
+            @foreach ($albuns as $album)
+              <tr>
+                <td scope="row">
+                  <img class="img_album"
+                  src="{{url('storage/uploads/album/'.$album->filename)}}" alt="{{$album->filename}}"/>
+                </td>
+                <td>{{$album->title}}</td>
+                <td>{{$album->artist->name}}</td>
+                <td>
+                  <button type="button" class="button-action">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  <a href="{{ route('album') }}" class="button-action">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
         
