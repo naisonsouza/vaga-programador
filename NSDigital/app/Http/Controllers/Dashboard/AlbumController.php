@@ -58,14 +58,6 @@ class AlbumController extends Controller
         //
     }
 
-    public function header_log($data){
-        $bt = debug_backtrace();
-        $caller = array_shift($bt);
-        $line = $caller['line'];
-        $file = array_pop(explode('/', $caller['file']));
-        header('log_'.$file.'_'.$caller['line'].': '.json_encode($data));
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -75,13 +67,14 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         try {
-            $validatedData = $request->validate([ 'title'=>'required' ]);            
+            $validatedData = $request->validate([ 
+                'title'=>'required',
+                'artist_id'=>'required'
+            ]);            
             $image = $request->file('album_image');
             $extension = $image->getClientOriginalExtension();
             $validatedData["original_filename"] = $image->getClientOriginalName();
             $validatedData["filename"] = $image->getFilename().'.'.$extension;
-
-            $validatedData["artist_id"] = 31;
         
             Storage::disk('public')->put('album/'.$image->getFilename().'.'.$extension, File::get($image));
 
