@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('artist', 'Dashboard\ArtistController');
 Route::resource('album', 'Dashboard\AlbumController');
 Route::resource('music', 'Dashboard\MusicController');
+
+Route::get('/artists/list', 'Dashboard\ArtistController@listArtists');
