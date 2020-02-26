@@ -112,4 +112,17 @@ class MusicController extends Controller
             return response()->json([ 'message' => 'Error' ], 404);
         }
     }
+
+    public function saveMusic($title, $archive, $album_id) {
+        $data["title"] = $title;
+        $data["archive"] = $archive;
+        $data["album_id"] = $album_id;
+        
+        try {
+            $this->musics->newMusic($data);
+            return response()->json(['success', 200]);
+        } catch(Exception $e) {
+            return response()->json(['error' => $e->getMessage(), 401]);
+        }
+    }
 }
