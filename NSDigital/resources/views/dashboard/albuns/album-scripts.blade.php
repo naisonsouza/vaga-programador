@@ -65,7 +65,6 @@
           $('#musics_table tbody').append(
             '<tr class="row_table" id="'+music.id+'"><td><i class="fa fa-music"></i></td><td class="music_title_td">'+ music.title +'</td>'
              +'<td><input type="text" disabled value="'+ music.title +'.mp3" /></td></tr>'
-            //  +'<td><button type="button" class="btn_remove_music">Excluir Música</button></td></tr>'
           )
         });
         modalEdit.style.display = "block";
@@ -73,15 +72,19 @@
       error: function (data) { console.log(data); }
     });
 
-    $(document).on('change','.form-control-file', function(e){ 
-      var tr = $(this).closest('tr');
-      title = tr.find("td:eq(1)").text();
-      file = e.target.files[0];
-      id = id;
+    $(document).on('change','.form-control-file', function(e){
+      title = $(this).closest('tr').find("td:eq(1)").text();
+      //file = $('#music_archive_'+$('table > tbody > tr').length).prop('files')[0];
+
       $.ajax({
-        type: 'post', 
+        type: 'post',
+        enctype: 'multipart/form-data',
         url: 'http://127.0.0.1:8000/api/music/saveMusic',
-        data: { title: "title", file: "file", id: "id" },
+        data: {
+          'title': title,
+          'id': id,
+        },
+        dataType: 'JSON',
         success: function (data) {
           console.log(data);
         },
