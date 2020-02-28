@@ -22,3 +22,5 @@ Route::resource('album', 'Dashboard\AlbumController');
 Route::resource('music', 'Dashboard\MusicController');
 
 Route::get('/artists/list', 'Dashboard\ArtistController@listArtists');
+
+Route::post('/music/saveMusic', 'Dashboard\AlbumController@saveMusic');
