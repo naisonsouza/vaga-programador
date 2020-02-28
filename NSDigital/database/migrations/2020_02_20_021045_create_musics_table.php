@@ -16,7 +16,7 @@ class CreateMusicsTable extends Migration
         Schema::create('musics', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title', 100);
-            $table->binary('archive');
+            $table->binary('archive')->nullable();
 
             $table->unsignedBigInteger('album_id');
             $table->foreign('album_id')->references('id')->on('albuns')->onDelete('cascade');
