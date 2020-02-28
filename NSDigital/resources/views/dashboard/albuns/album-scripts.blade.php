@@ -63,7 +63,7 @@
         
         data[0].musics.forEach(function(music) {
           $('#musics_table tbody').append(
-            '<tr class="row_table" id="'+music.id+'"><td><i class="fa fa-music"></i></td><td>'+ music.title +'</td>'
+            '<tr class="row_table" id="'+music.id+'"><td><i class="fa fa-music"></i></td><td class="music_title_td">'+ music.title +'</td>'
              +'<td><input type="text" disabled value="'+ music.title +'.mp3" /></td></tr>'
             //  +'<td><button type="button" class="btn_remove_music">Excluir Música</button></td></tr>'
           )
@@ -89,8 +89,8 @@
       });
     });
     
-    $(document).on('click','.row_table', function(e){ 
-      var tr = $(this).closest('tr'), del_id = $(this).attr('id');
+    $(document).on('click','.music_title_td', function(e){ 
+      var tr = $(this).closest('tr'), del_id = tr.attr('id');
       if(confirm("Tem certeza que deseja remover essa música? "))
       { 
         $.ajax({
