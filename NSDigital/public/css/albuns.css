@@ -104,6 +104,12 @@ section .form-album .form-input-title input::placeholder {
   padding: 10px;
 }
 
+section .container-form {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
 section .container-form .form {
   display: flex;
   flex-direction: row;
