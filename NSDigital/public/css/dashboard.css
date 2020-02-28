@@ -231,6 +231,10 @@ section .group-albuns-statics i {
   font-size: 50px;
   color: #FFF;
   margin-right: 20px;
+  -webkit-border-radius: 25px;
+  -webkit-box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  -moz-box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
+  box-shadow: 4px 4px 13px -1px rgba(0,0,0,1);
 }
 
 section .indicate-albuns-info {
