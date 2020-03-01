@@ -52,6 +52,7 @@
 
   $('.edit_button').click(function() {
     var id = $(this).attr('id');
+    $('#musics_table tbody').empty();
     $.ajax({
       type: 'get', url: 'http://127.0.0.1:8000/api/album/'+id+'/edit',
       success: function (data) {
