@@ -1,5 +1,9 @@
 @extends('layouts.dashboard.artists-layout')
 
+<?php
+ use Illuminate\Support\Facades\Cache; 
+?>
+
 @section('content')
   <section class="container">
     {{-- @include('dashboard.header-forms') --}}
@@ -10,6 +14,18 @@
       <a href="{{ route('artists') }}" class="active">Artistas</a>
       <a href="{{ route('albuns') }}">Albuns</a>
     </div>
+
+    @if(Cache::get('message'))
+      <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ Cache::get('message') }}
+      </div>
+    @elseif(Cache::get('error'))
+      <div class="alert alert-error alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ Cache::get('error') }}
+      </div>
+    @endif
 
     <div class="row container-table-artists">
       <div class="col-md-12 table-responsive table-wrapper-scroll-y my-custom-scrollbar">
