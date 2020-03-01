@@ -266,15 +266,15 @@ section .container-form .container-table-actions i {
 }
 
 /* The Close Button */
-.close {
+.closeModal {
   color: #FFF;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.closeModal:hover,
+.closeModal:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
