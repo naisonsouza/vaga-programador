@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Repositories\ArtistRepository;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Cache;
+use Carbon\Carbon;
 
 class ArtistController extends Controller
 {
@@ -73,10 +75,13 @@ class ArtistController extends Controller
         
             $this->artists->newArtist($validatedData);
 
+            Cache::put('message', 'Sucesso ao cadastrar o Artista!',  Carbon::now()->addSeconds(5));
+
             return redirect('artists')->with(['success']);
             // return response()->json(['success', 200]);
             
         } catch(Exception $e) {
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
             return response()->json(['error' => $e->getMessage(), 401]);
         }
     }
@@ -120,8 +125,10 @@ class ArtistController extends Controller
         Storage::disk('public')->put('artist/'.$image->getFilename().'.'.$extension, File::get($image));
 
         if ($this->artists->updateArtist($request, $id) == 1) {
+            Cache::put('message', 'Sucesso ao editar o Artista!',  Carbon::now()->addSeconds(5));
             return redirect('artists')->with(['success']);
         } else {
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
             return response()->json(['error' => 'erro', 401]);
         }
     }
