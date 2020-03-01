@@ -1,5 +1,9 @@
 @extends('layouts.dashboard.albuns-layout')
 
+<?php
+ use Illuminate\Support\Facades\Cache; 
+?>
+
 @section('content')
   <section class="container">
     {{-- @include('dashboard.header-forms') --}}
@@ -10,7 +14,19 @@
       <a href="{{ route('artists') }}">Artistas</a>
       <a href="{{ route('albuns') }}" class="active">Albuns</a>
     </div>
-
+    
+    @if(Cache::get('message'))
+      <div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ Cache::get('message') }}
+      </div>
+    @elseif(Cache::get('error'))
+      <div class="alert alert-error alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ Cache::get('error') }}
+      </div>
+    @endif
+  
     <div class="row container-table-artists">
       <div class="col-md-12 table-responsive table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table table-dark table-bordered table-hover mb-0">
@@ -38,9 +54,6 @@
                   <button id="{{$album->id}}" type="button" class="button-action remove_button">
                     <i class="fas fa-trash"></i>
                   </button>
-                  <a href="{{ route('album') }}" class="button-action">
-                    <i class="fas fa-search"></i>
-                  </button>
                 </td>
               </tr>
             @endforeach
@@ -63,7 +76,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2>Selecionar Artista</h2>
-          <span class="close">&times;</span>
+          <span class="closeModal">&times;</span>
         </div>
         <div class="modal-body">
           <form action="">
@@ -88,7 +101,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h2>Editar</h2>
-          <span class="close">&times;</span>
+          <span class="closeModal">&times;</span>
         </div>
         <div class="modal-body">
           <div class="row container-form">
@@ -100,6 +113,6 @@
         </div>
       </div>
     </div>
-  
+    
   </section>
 @endsection
