@@ -1,8 +1,8 @@
 <script>
   var modal = document.getElementById("modalArtists");
-  var span = document.getElementsByClassName("close")[0];
+  var span = document.getElementsByClassName("closeModal")[0];
   var modalEdit = document.getElementById("modalEditAlbum");
-  var span2 = document.getElementsByClassName("close")[1];
+  var span2 = document.getElementsByClassName("closeModal")[1];
 
   if (span) { span.onclick = function() { modal.style.display = "none"; } }
   if (span2) { span2.onclick = function() { modalEdit.style.display = "none"; } }
@@ -14,6 +14,7 @@
   }
 
   $('#btn-create-album').click(function() {
+    $('#list_artits').empty();
     $.ajax({
       type: 'get', url: 'http://127.0.0.1:8000/api/artists/list',
       success: function (data) {
@@ -57,11 +58,11 @@
         $('.album_form').attr('id', 'album_form_edit');
         $('#album_form_edit').attr('action', 'http://127.0.0.1:8000/api/album/'+id);
 
-        $('#artist_id').val(data[0].artist_id);
-        $('#title-album').val(data[0].title);
-        $('#filename').text(data[0].original_filename);
+        $('#artist_id').val(data.artist_id);
+        $('#title-album').val(data.title);
+        $('#filename').text(data.original_filename);
         
-        data[0].musics.forEach(function(music) {
+        data.musics.forEach(function(music) {
           $('#musics_table tbody').append(
             '<tr class="row_table" id="'+music.id+'"><td><i class="fa fa-music"></i></td><td class="music_title_td">'+ music.title +'</td>'
              +'<td><input type="text" disabled value="'+ music.title +'.mp3" /></td></tr>'
@@ -69,7 +70,7 @@
         });
         modalEdit.style.display = "block";
       },
-      error: function (data) { console.log(data); }
+      error: function (data) { toastr.error('Erro:' + data); }
     });
 
     $(document).on('change','.form-control-file', function(e){
@@ -93,7 +94,7 @@
     });
     
     $(document).on('click','.music_title_td', function(e){ 
-      var tr = $(this).closest('tr'), del_id = tr.attr('id');
+      var tr = $(this).closest('tr'), del_id = $(this).attr('id');
       if(confirm("Tem certeza que deseja remover essa música? "))
       { 
         $.ajax({
@@ -106,12 +107,16 @@
   });  
 
   $('.remove_button').click(function() {
+    var tr = $(this).closest('tr'), del_id = $(this).attr('id');
     if(confirm("Tem certeza que deseja deletar esse álbum? "))
     { 
       $.ajax({
         type: 'delete', url: 'http://127.0.0.1:8000/api/album/'+ del_id,
-        success: function (data) { tr.fadeOut(1000, function(){ $(this).remove(); }); },
-        error: function (data) { console.log(data); }
+        success: function (data) { 
+          tr.fadeOut(1000, function(){ $(this).remove(); }); 
+          toastr.info('Sucesso ao excluir!');
+        },
+        error: function (data) { toastr.error('Erro: ' + data); }
       });
     }
   });
