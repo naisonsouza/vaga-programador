@@ -8,6 +8,8 @@ use App\Http\Repositories\AlbumRepository;
 use App\Http\Controllers\Dashboard\MusicController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Cache;
+use Carbon\Carbon;
 
 class AlbumController extends Controller
 {
@@ -35,6 +37,7 @@ class AlbumController extends Controller
     public function index()
     {
         $albunsList = $this->listAlbuns();
+        //dd($albunsList);
         return view('dashboard.albuns.index')->with('albuns', $albunsList);
     }
 
@@ -80,9 +83,14 @@ class AlbumController extends Controller
 
             $album_id = $this->albuns->newAlbum($validatedData)->id;
 
-            $this->saveMusic($request, $album_id);
+            $this->saveMusics($request, $album_id);
+
+            Cache::put('message', 'Sucesso ao cadastrar o Álbum!',  Carbon::now()->addSeconds(5));
+
             return redirect('albuns')->with(['success']);            
         } catch(Exception $e) {
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
+
             return response()->json(['error' => $e->getMessage(), 401]);
         }
     }
@@ -101,26 +109,37 @@ class AlbumController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Album  $album
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Album $album)
+    public function edit($id)
     {
-        //
+        return $this->albuns->findAlbum($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        if ($this->albuns->updateAlbum($request) == 1) {
-            return response()->json(['success', 200]);
+        $image = $request->file('album_image');
+        $extension = $image->getClientOriginalExtension();
+        $request->original_filename = $image->getClientOriginalName();
+        $request->filename = $image->getFilename().'.'.$extension;
+
+        Storage::disk('public')->put('album/'.$image->getFilename().'.'.$extension, File::get($image));
+
+        if ($this->albuns->updateAlbum($request, $id) == 1) {
+            Cache::put('message', 'Sucesso ao editar o Álbum!',  Carbon::now()->addSeconds(5));
+            return redirect('albuns')->with(['success']);
         } else {
-            return response()->json(['error' => $e->getMessage(), 401]);
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
+
+            return response()->json(['error', 401]);
         }
     }
 
@@ -139,7 +158,11 @@ class AlbumController extends Controller
         }
     }
 
-    public function saveMusic(Request $request, $album_id) {
+    public function listAlbuns() {
+        return $this->albuns->listAlbuns();
+    }
+
+    public function saveMusics(Request $request, $album_id) {
         $musics = explode('-,', $request->musics_title[0]);
         $cont = 0;
         foreach($request->file() as $file) {
@@ -151,7 +174,9 @@ class AlbumController extends Controller
         }
     }
 
-    public function listAlbuns() {
-        return $this->albuns->listAlbuns();
+    public function saveMusic(Request $request) {
+        $content = null;//base64_encode(file_get_contents($request->file(0)));
+        $this->musics->saveMusic($request->title, $content, $request->id);
+
     }
 }
