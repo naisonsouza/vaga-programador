@@ -76,6 +76,7 @@ nav .search-bar-container button i {
 
 .container {
   margin-top: 100px;
+  margin-bottom: 50px;
 }
 
 section .page-title {
@@ -197,7 +198,6 @@ section .group-artists .shortcut-create-artist {
 
 section .group-artists .shortcut-create-artist i { 
   color: #FFF;
-
 }
 
 section .group-albuns { 
