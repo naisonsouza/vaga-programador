@@ -1,7 +1,9 @@
 @extends('layouts.dashboard.layout')
 
 @section('content')
+
   <section class="container">
+    
     <h2 class="page-title">Painel de Controle</h2>
     <div class="tab-pages">
       <a href="{{ route('dashboard') }}" class="active">Overview</a>
