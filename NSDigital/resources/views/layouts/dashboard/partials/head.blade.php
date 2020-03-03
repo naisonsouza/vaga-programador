@@ -12,6 +12,8 @@
 <link href="/css/artists.css" rel="stylesheet">
 <link href="/css/albuns.css" rel="stylesheet">
 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet"/>
 
 <script src="https://kit.fontawesome.com/7350d3089c.js" crossorigin="anonymous"></script>
