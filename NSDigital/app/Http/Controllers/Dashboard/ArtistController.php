@@ -69,6 +69,7 @@ class ArtistController extends Controller
             $validatedData["original_filename"] = $image->getClientOriginalName();
             $validatedData["filename"] = $image->getFilename().'.'.$extension;
 
+            //dd(Storage::disk('public'));
             Storage::disk('public')->put(
                 'artist/'.$image->getFilename().'.'.$extension, File::get($image)
             );
