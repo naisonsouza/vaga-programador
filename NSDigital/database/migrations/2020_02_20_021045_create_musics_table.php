@@ -15,7 +15,7 @@ class CreateMusicsTable extends Migration
     {
         Schema::create('musics', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 100);
+            $table->string('title', 255);
             $table->binary('archive')->nullable();
 
             $table->unsignedBigInteger('album_id');
