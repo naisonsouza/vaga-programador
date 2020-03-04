@@ -59,11 +59,12 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'=>'unique:artists'
+        ]);
+        
         try {
-            $validatedData = $request->validate([
-                'name'=>'required',
-            ]);
-            
+            $validatedData["name"] = $request->name;
             $image = $request->file('artist_image');
             $extension = $image->getClientOriginalExtension();
             $validatedData["original_filename"] = $image->getClientOriginalName();
@@ -82,7 +83,7 @@ class ArtistController extends Controller
             // return response()->json(['success', 200]);
             
         } catch(Exception $e) {
-            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(1));
             return response()->json(['error' => $e->getMessage(), 401]);
         }
     }
@@ -129,7 +130,7 @@ class ArtistController extends Controller
             Cache::put('message', 'Sucesso ao editar o Artista!',  Carbon::now()->addSeconds(5));
             return redirect('artists')->with(['success']);
         } else {
-            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(1));
             return response()->json(['error' => 'erro', 401]);
         }
     }
@@ -151,5 +152,9 @@ class ArtistController extends Controller
 
     public function listArtists() {
         return $this->artists->listArtists();
+    }
+
+    public function verifyUniqueName($name) {
+        return $this->artists->verifyUniqueName($name);
     }
 }
