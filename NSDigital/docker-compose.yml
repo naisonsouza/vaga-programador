@@ -26,6 +26,7 @@ services:
     container_name: mysql-db
     volumes:
       - ./run/var:/var/lib/mysql
+      - ./mysqlconf:/etc/mysql/conf.d
     environment:
       - MYSQL_ROOT_HOST=%
       - MYSQL_ROOT_PASSWORD=laravel
