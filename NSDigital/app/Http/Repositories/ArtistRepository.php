@@ -45,4 +45,8 @@ class ArtistRepository extends BaseRepository
   public function findArtist($id) {
     return Artist::find($id);
   }
+
+  public function verifyUniqueName($name) {
+    return Artist::where('name','=', $name)->get();
+  }
 }
