@@ -73,7 +73,7 @@ class AlbumController extends Controller
             $validatedData = $request->validate([ 
                 'title'=>'required',
                 'artist_id'=>'required'
-            ]);            
+            ]);
             $image = $request->file('album_image');
             $extension = $image->getClientOriginalExtension();
             $validatedData["original_filename"] = $image->getClientOriginalName();
@@ -85,11 +85,11 @@ class AlbumController extends Controller
 
             $this->saveMusics($request, $album_id);
 
-            Cache::put('message', 'Sucesso ao cadastrar o Álbum!',  Carbon::now()->addSeconds(5));
+            Cache::put('message', 'Sucesso ao cadastrar o Álbum!',  Carbon::now()->addSeconds(1));
 
             return redirect('albuns')->with(['success']);            
         } catch(Exception $e) {
-            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(1));
 
             return response()->json(['error' => $e->getMessage(), 401]);
         }
