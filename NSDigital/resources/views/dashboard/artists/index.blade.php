@@ -44,7 +44,7 @@
                 <th scope="row">{{$artist->id}}</th>
                 <td>
                   <img class="img_artist"
-                    src="{{url('storage/uploads/artist/'.$artist->filename)}}" alt="{{$artist->filename}}" />
+                    src="{{url('/storage/uploads/artist/'.$artist->filename)}}" alt="{{$artist->filename}}" />
                 </td>
                 <td>{{$artist->name}}</td>
                 <td class="actions">
