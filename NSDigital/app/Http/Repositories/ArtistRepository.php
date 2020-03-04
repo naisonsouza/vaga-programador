@@ -11,7 +11,7 @@ class ArtistRepository extends BaseRepository
   protected $modelClass = Artist::class;
 
   public function listArtists() {
-    return Artist::all();
+    return Artist::orderBy('id', 'DESC')->get();
   }
 
   public function newArtist($data) {
