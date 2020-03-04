@@ -12,6 +12,8 @@ services:
       - APACHE_RUN_GROUP=#${UID}
     volumes:
       - .:/var/www/html
+      - /var/www/storage
+      # - ./public/storage/uploads:/var/www/html/public/storage
     ports:
       - 8000:80
     networks:
