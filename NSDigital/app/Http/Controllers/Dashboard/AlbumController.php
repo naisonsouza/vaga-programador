@@ -87,7 +87,7 @@ class AlbumController extends Controller
 
             Cache::put('message', 'Sucesso ao cadastrar o Álbum!',  Carbon::now()->addSeconds(1));
 
-            return redirect('albuns')->with(['success']);            
+            return redirect('albuns')->with(['success']);
         } catch(Exception $e) {
             Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(1));
 
@@ -134,10 +134,10 @@ class AlbumController extends Controller
         Storage::disk('public')->put('album/'.$image->getFilename().'.'.$extension, File::get($image));
 
         if ($this->albuns->updateAlbum($request, $id) == 1) {
-            Cache::put('message', 'Sucesso ao editar o Álbum!',  Carbon::now()->addSeconds(5));
+            Cache::put('message', 'Sucesso ao editar o Álbum!',  Carbon::now()->addSeconds(1));
             return redirect('albuns')->with(['success']);
         } else {
-            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(5));
+            Cache::put('error', 'Erro: '+$e, Carbon::now()->addSeconds(1));
 
             return response()->json(['error', 401]);
         }
