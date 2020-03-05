@@ -127,12 +127,15 @@ class AlbumController extends Controller
     public function update(Request $request, $id)
     {
         $image = $request->file('album_image');
-        $extension = $image->getClientOriginalExtension();
-        $request->original_filename = $image->getClientOriginalName();
-        $request->filename = $image->getFilename().'.'.$extension;
-
-        Storage::disk('public')->put('album/'.$image->getFilename().'.'.$extension, File::get($image));
-
+        
+        if($image != null) {
+            $extension = $image->getClientOriginalExtension();
+            $request->original_filename = $image->getClientOriginalName();
+            $request->filename = $image->getFilename().'.'.$extension;
+    
+            Storage::disk('public')->put('album/'.$image->getFilename().'.'.$extension, File::get($image));
+        }
+       
         if ($this->albuns->updateAlbum($request, $id) == 1) {
             Cache::put('message', 'Sucesso ao editar o Álbum!',  Carbon::now()->addSeconds(1));
             return redirect('albuns')->with(['success']);
