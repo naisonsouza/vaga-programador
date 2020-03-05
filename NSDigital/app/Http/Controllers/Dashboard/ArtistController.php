@@ -66,14 +66,17 @@ class ArtistController extends Controller
         try {
             $validatedData["name"] = $request->name;
             $image = $request->file('artist_image');
-            $extension = $image->getClientOriginalExtension();
-            $validatedData["original_filename"] = $image->getClientOriginalName();
-            $validatedData["filename"] = $image->getFilename().'.'.$extension;
 
-            Storage::disk('public')->put(
-                'artist/'.$image->getFilename().'.'.$extension, File::get($image)
-            );
-        
+            if($image != null) {
+                $extension = $image->getClientOriginalExtension();
+                $validatedData["original_filename"] = $image->getClientOriginalName();
+                $validatedData["filename"] = $image->getFilename().'.'.$extension;
+    
+                Storage::disk('public')->put(
+                    'artist/'.$image->getFilename().'.'.$extension, File::get($image)
+                );
+            }
+            
             $this->artists->newArtist($validatedData);
 
             Cache::put('message', 'Sucesso ao cadastrar o Artista!',  Carbon::now()->addSeconds(5));
