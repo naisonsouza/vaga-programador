@@ -186,4 +186,8 @@ class AlbumController extends Controller
     public function listAlbunsCount() {
         return $this->listAlbuns()->count();
     }
+
+    public function lastAlbum() {
+        return $this->listAlbuns()->first();
+    }
 }
