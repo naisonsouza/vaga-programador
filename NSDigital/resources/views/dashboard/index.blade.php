@@ -15,11 +15,11 @@
         <div class="group-artists">
           <div class="group-artists-header">
             <div class="indicate-artists-image">
-              <i class="fas fa-play"></i>
+              <i class="fas fa-user"></i>
             </div>
             <div class="indicate-artists-info">
-              <h5>+ 100</h5>
-              <p>novos artistas</p>
+              <h5>{{ $artistsCount }}</h5>
+              <p>artistas cadastrados</p>
             </div>
           </div>
           <div class="group-artists-new">
@@ -44,8 +44,24 @@
             <i class="fas fa-compact-disc"></i>
           </div>
           <div class="indicate-albuns-info">
-            <h5>+ 100</h5>
-            <p>novos albuns</p>
+            <h5>{{ $albunsCount }}</h5>
+            <p>albuns cadastrados</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="group-artists">
+          <div class="group-artists-header">
+            <div class="indicate-artists-image">
+              <i class="fas fa-play"></i>
+            </div>
+            <div class="indicate-artists-info">
+              <h5>{{ $musicsCount }}</h5>
+              <p>músicas cadastrados</p>
+            </div>
+          </div>
+          <div class="group-artists-new">
+            
           </div>
         </div>
       </div>
