@@ -45,4 +45,5 @@ RUN mkdir -p /home/devuser/.composer && \
 
 RUN touch /usr/local/etc/php/conf.d/uploads.ini \
     && echo "upload_max_filesize = 1024M;" >> /usr/local/etc/php/conf.d/uploads.ini \
-    && echo "post_max_size = 1024M;" >> /usr/local/etc/php/conf.d/uploads.ini
+    && echo "post_max_size = 1024M;" >> /usr/local/etc/php/conf.d/uploads.ini \
+    && echo "memory_limit = 256M;" >> /usr/local/etc/php/conf.d/uploads.ini
