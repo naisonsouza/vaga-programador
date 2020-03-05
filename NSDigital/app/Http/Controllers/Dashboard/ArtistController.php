@@ -161,4 +161,8 @@ class ArtistController extends Controller
     public function listArtistsCount() {
         return $this->artists->listArtists()->count();
     }
+
+    public function lastArtist() {
+        return $this->artists->listArtists()->first();
+    }
 }
