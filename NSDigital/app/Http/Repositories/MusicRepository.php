@@ -27,4 +27,8 @@ class MusicRepository extends BaseRepository
     $music->delete();
     return 1;
   }
+
+  public function listMusics() {
+    return Music::get();
+  }
 }
