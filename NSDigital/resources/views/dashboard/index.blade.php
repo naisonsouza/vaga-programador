@@ -68,7 +68,7 @@
             </div>
             <div class="indicate-artists-info">
               <h5>{{ $musicsCount }}</h5>
-              <p>músicas cadastrados</p>
+              <p>músicas cadastradas</p>
             </div>
           </div>
           <div class="group-artists-new">
