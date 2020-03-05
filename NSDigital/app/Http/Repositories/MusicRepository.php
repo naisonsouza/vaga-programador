@@ -29,6 +29,6 @@ class MusicRepository extends BaseRepository
   }
 
   public function listMusics() {
-    return Music::get();
+    return Music::orderBy('id', 'DESC')->get();
   }
 }
