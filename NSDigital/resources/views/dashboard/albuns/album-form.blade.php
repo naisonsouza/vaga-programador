@@ -21,6 +21,10 @@
     <div class="container-form-button">
       <button type="submit" class="btn btn-primary">Salvar</button>
     </div>
+
+    @if($errors->any())
+      <h4>{{$errors->first()}}</h4>
+    @endif
     
   </div>
   <div class="col-md-7">
