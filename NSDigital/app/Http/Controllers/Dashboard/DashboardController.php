@@ -34,6 +34,8 @@ class DashboardController extends Controller
             'artistsCount' => $this->artists->listArtistsCount(),
             'albunsCount' => $this->albuns->listAlbunsCount(),
             'musicsCount' => $this->musics->listMusicsCount(),
+            'lastMusic' => $this->musics->lastMusic(),
+
         ]);
     }
 }
