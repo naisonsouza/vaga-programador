@@ -120,7 +120,6 @@ class MusicController extends Controller
         if ($archive) 
             $data["archive"] = $archive;
 
-        
         try {
             $this->musics->newMusic($data);
             return response()->json(['success', 200]);
