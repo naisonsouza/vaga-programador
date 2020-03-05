@@ -179,4 +179,8 @@ class AlbumController extends Controller
         $this->musics->saveMusic($request->title, $content, $request->id);
 
     }
+
+    public function listAlbunsCount() {
+        return $this->listAlbuns()->count();
+    }
 }
