@@ -61,7 +61,10 @@
             </div>
           </div>
           <div class="group-artists-new">
-            
+            <div class="indicate-artists-info">
+              <h3>{{ $lastMusic->title }}</h3>
+              <p>última música cadastrada</p>
+            </div>
           </div>
         </div>
       </div>
