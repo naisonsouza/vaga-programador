@@ -24,16 +24,6 @@
       <small id="emailHelp" class="form-text text-muted">Informe o nome do artista para cadastro.</small>
     </div>
 
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 error">
-        <ul>
-          @foreach($errors->all() as $error)
-            <li>{{$error}}</li>
-          @endforeach
-        </ul>
-      </div>
-    </div>
-
     <div class="form-group">
       <label for="inputFile">Imagem do Artista</label>
       <input type="file" class="form-control-file" id="inputFile" required="required" name="artist_image" />
