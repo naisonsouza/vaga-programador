@@ -129,7 +129,15 @@ class MusicController extends Controller
         }
     }
 
+    public function listMusics() {
+        return $this->musics->listMusics();
+    }
+
     public function listMusicsCount() {
         return $this->musics->listMusics()->count();
+    }
+
+    public function lastMusic() {
+        return $this->musics->listMusics()->first();
     }
 }
