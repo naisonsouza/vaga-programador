@@ -128,4 +128,8 @@ class MusicController extends Controller
             return response()->json(['error' => $e->getMessage(), 401]);
         }
     }
+
+    public function listMusicsCount() {
+        return $this->musics->listMusics()->count();
+    }
 }
