@@ -71,12 +71,16 @@
               <p>músicas cadastradas</p>
             </div>
           </div>
-          <div class="group-artists-new">
-            <div class="indicate-artists-info">
-              <h4>{{ $lastMusic->title }} - {{ $lastAlbum->title }}</h4>
-              <p>última música cadastrada</p>
+
+          @if($lastMusic)
+            <div class="group-artists-new">
+              <div class="indicate-artists-info">
+                  <h4>{{ $lastMusic->title }} - {{ $lastAlbum->title }}</h4>
+                  <p>última música cadastrada</p>                
+              </div>
             </div>
-          </div>
+          @endif
+
         </div>
       </div>
     </div>
