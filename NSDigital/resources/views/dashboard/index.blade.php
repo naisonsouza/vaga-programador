@@ -21,7 +21,18 @@
               <h5>{{ $artistsCount }}</h5>
               <p>artistas cadastrados</p>
             </div>
+            
           </div>
+
+          <div class="group-artists-new">
+            <div class="indicate-artists-info">
+              @if($lastArtist)
+                <h5>{{ $lastArtist->name }}</h5> <p>{{$lastArtist->created_at}}</p>
+                <p>último artista cadastrado</p> 
+              @endif
+            </div>
+          </div>
+          
           <div class="group-artists-new">
             <a href="{{ route('new-artist') }}">Criar Novo Artista
               <button class="shortcut-create-artist">
@@ -62,7 +73,7 @@
           </div>
           <div class="group-artists-new">
             <div class="indicate-artists-info">
-              <h3>{{ $lastMusic->title }}</h3>
+              <h4>{{ $lastMusic->title }} - {{ $lastAlbum->title }}</h4>
               <p>última música cadastrada</p>
             </div>
           </div>
