@@ -157,4 +157,8 @@ class ArtistController extends Controller
     public function verifyUniqueName($name) {
         return $this->artists->verifyUniqueName($name);
     }
+
+    public function listArtistsCount() {
+        return $this->artists->listArtists()->count();
+    }
 }
