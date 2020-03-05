@@ -25,8 +25,9 @@ class AlbumRepository extends BaseRepository
       return 0;
 
     $album->title = $request->title;
-    $album->filename = $request->filename;
-    $album->original_filename = $request->original_filename;
+    $album->filename = $request->filename ? $request->filename : $album->filename;
+    $album->original_filename = $request->original_filename ? $request->original_filename 
+            : $album->original_filename;
 
     $album->save();
 
