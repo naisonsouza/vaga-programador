@@ -47,4 +47,8 @@ class AlbumRepository extends BaseRepository
   public function findAlbum($id) {
     return Album::with('musics')->find($id);
   }
+
+  public function veryfiUniqueAlbumForArtist($title, $artist_id) {
+    return Album::where('title', $title)->where('artist_id', $artist_id)->first();
+  }
 }
