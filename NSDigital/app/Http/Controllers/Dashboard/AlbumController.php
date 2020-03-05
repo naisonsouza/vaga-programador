@@ -69,11 +69,20 @@ class AlbumController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $validatedData = $request->validate([ 
-                'title'=>'required',
-                'artist_id'=>'required'
+        $validatedData = $request->validate([ 
+            'title'=>'required',
+            'artist_id'=>'required'
+        ]);
+
+        if ($this->veryfiUniqueAlbumForArtist($validatedData["title"],
+                    $validatedData["artist_id"]) != null) {
+            return redirect()->back()->withErrors([
+                'msg', 'Já existe um álbum com esse titúlo cadastrado para esse artista!'
             ]);
+        }
+
+        try {
+
             $image = $request->file('album_image');
             $extension = $image->getClientOriginalExtension();
             $validatedData["original_filename"] = $image->getClientOriginalName();
@@ -180,7 +189,6 @@ class AlbumController extends Controller
     public function saveMusic(Request $request) {
         $content = null;//base64_encode(file_get_contents($request->file(0)));
         $this->musics->saveMusic($request->title, $content, $request->id);
-
     }
 
     public function listAlbunsCount() {
@@ -189,5 +197,9 @@ class AlbumController extends Controller
 
     public function lastAlbum() {
         return $this->listAlbuns()->first();
+    }
+
+    public function veryfiUniqueAlbumForArtist($title, $artist_id) {
+        return $this->albuns->veryfiUniqueAlbumForArtist($title, $artist_id);
     }
 }
