@@ -69,7 +69,7 @@ Referente aos Álbuns, é obrigatório selecionar um artista para ser o propriet
 No cadastro de álbum, é possível informar a imagem de capa do Álbum e o seu título, porém, antes de salvar, é necessário inserir pelo menos uma música (título e depois arquivo mp3) na listagem ao lado. Vale ressaltar que o arquivo está sendo salvo no banco de dados. A partir daí, já é possível salvar o álbum.
 
  ### Testes Unitários
-Para relizar os testes pré-definidos, é necessário estar no servidor, na pasta do sistema, e simplesmente executar o comando:
+Para relizar os testes pré-definidos, é necessário estar no servidor *(Step 2#)*, na pasta do sistema, e simplesmente executar o comando:
 
     > ./vendor/bin/phpunit
 
