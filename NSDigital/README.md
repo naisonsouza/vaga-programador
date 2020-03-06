@@ -20,24 +20,30 @@ Há dois serviços, o laravel-app e o mysql-db, que serão levantados assim que 
 
 
 **Step #2**
+
 Após isso, acesse através do docker o servidor apache (laravel-app) para que possamos utilizar o terminal, e executar alguns comandos necessários:
     
     > docker exec -it laravel-app bash
 	
 Agora já estamos dentro do servidor, e podemos usar as funcionalidades do framework, perceba que estamos na pasta /var/www/html, e aqui estão todos os arquivos do projeto que foram copiados e colados aqui através do Docker.
 
+
 **Step #3**
+
 Está na hora de executar o gerenciador de dependências para que nossas dependências de terceiros estejam prontas. 
 
     > compose update
 
+
 **Step #4**
+
 Gere a key da aplicação:
 	
 	> php artisan key:generate
 
 
 **Step #5**
+
 E agora, com esse comando, o Laravel cria as tabelas e alterações no banco de dados pré-estabelecidas pelas Migrations:
 
 	> php artisan migrate
