@@ -12,7 +12,7 @@
     <div class="tab-pages">
       <a href="{{ route('dashboard') }}">Overview</a>
       <a href="{{ route('artists') }}">Artistas</a>
-      <a href="{{ route('albuns') }}" class="active">Albuns</a>
+      <a href="{{ route('albuns') }}" class="active">Álbuns</a>
     </div>
     
     @if(Cache::get('message'))
