@@ -74,6 +74,23 @@ Para relizar os testes pré-definidos (se encontram em tests/), é necessário e
     > ./vendor/bin/phpunit
 
 
+
+## Screenshots
+
+![Tela de Login](https://i.ibb.co/ccVW7vK/Tela-de-Login.jpg)
+
+![Tela de Overview](https://i.ibb.co/HrM5KNt/Tela-de-Overview.jpg)
+
+![Listagem de Artistas](https://i.ibb.co/x6cYXGG/Tela-de-Artistas.jpg)
+
+![Cadastro de Artistas](https://i.ibb.co/KyfNb5r/Tela-de-Cadastro-de-Artistas.jpg)
+
+![Listagem de Álbuns](https://i.ibb.co/Kryd7cw/Tela-de-lbuns.jpg)
+
+![Cadastro de Álbum](https://i.ibb.co/y56pgGS/Tela-de-Cadastro-de-lbum.jpg)
+
+
+
 ## Referências
 
 [https://stack.desenvolvedor.expert/appendix/docker/instalacao.html](https://stack.desenvolvedor.expert/appendix/docker/instalacao.html)
