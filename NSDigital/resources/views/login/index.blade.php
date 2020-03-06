@@ -21,7 +21,7 @@
                       <i class="far fa-user-circle"></i>
                     </span>
                   </div>
-                  <input placeholder="Usuário" name="user" type="text" class="form-control" />
+                  <input placeholder="Usuário" name="user" type="text" class="form-control" value="admin@admin.com" />
                 </div>
                 <div class="no-border form-control-lg  input-group">
                   <div class="input-group-prepend">
@@ -29,12 +29,12 @@
                       <i class="fas fa-lock"></i>
                     </span>
                   </div>
-                  <input placeholder="Senha" name="password" type="password" class="form-control" />
+                  <input placeholder="Senha" name="password" type="password" class="form-control" value="admin1234" />
                 </div>
               </div>
               
               <div class="card-footer">
-                <a href="#" class="btn btn-primary btn-lg btn-block">
+                <a href="{{ route('dashboard') }}" class="btn btn-primary btn-lg btn-block">
                   Login
                 </a>
               </div>
