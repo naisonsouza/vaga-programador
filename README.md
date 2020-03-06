@@ -1,39 +1,97 @@
-# Teste Prático de PHP
+# O Projeto
 
-O objetivo deste teste é conhecer suas habilidades em:
+NSDigital é um sistema para cadastro de Artistas, albuns e músicas.
+Feito no Framework PHP Laravel, que dispoe de funcionalidades para Migrations, Migrations, Blade Template, Multi Tenancy, etc, além de contar com o gerenciador de dependências Composer. 
+Foi utilizado o banco de dados relacional MySQL, e também o Bootstrap, afim de manter a responsividade. Tudo isso em containers Docker.
 
-* PHP, MySQL, HTML, CSS e JavaScript;
-* Entendimento e análise dos requisitos;
-* Modelagem de banco de dados;
-* A aplicação pode ser feita em PHP puro ou algum framework conhecido no mercado. Banco de dados MySQL.
 
-## Problema
+## Container Docker - Passo a Passo
 
-A empresa NS DIGITAL precisa criar um sistema para gerenciar artistas, álbuns e músicas.
+Primeiro, será necessário ter em sua máquina instalado o Docker, para que seja possível subir os containers e executar o sistema sem necessidade de instalar as tecnologias utilizadas na própria máquina. Para isso, segue um link mais detalhados com os passos para instalá-lo junto a suas dependências referentes a cada Sistema Operacional:
 
-Os requisitos para desenvolvimento do sistema são:
+* [Instalando o Docker em qualquer Sistema Operacional](https://stack.desenvolvedor.expert/appendix/docker/instalacao.html)
 
-* Cadastro de artistas com os dados: nome e imagem;
-* Cadastro de álbum com os dados:  título, imagem e artista e músicas(título, álbum, arquivo mp3) 1:N;
-* Um álbum obrigatóriamente deve estar relacionado a um artista e uma música deve obrigatóriamente estar relacionado a um álbum. 
-* O sistema não pode permitir que seja cadastrado dois álbuns com o mesmo título para o mesmo artista.
-* No cadastro de álbuns deve permitir que seja adicionada músicas 1:N(mais de uma música)
 
-## Requisitos
-* O candidato deverá desenvolver um CRUD conforme os requisitos mencionados anteriormente.
-* Utilizar php 7.0 ou superior
-* Utilizar banco de dados MySQL
-* Utilizar javascript para manipular eventos das telas sem a necessidade de recarregar a página.
+**Step #1**
 
-## Entrega do projeto
-* Faça fork desse projeto e edite este README explicando como devo fazer para criar as tabelas e testar as telas;
-* Todos os arquivos necessários para rodar o projeto devem estar no repositório do github;
-* Criar um pull request nesse repositório quando o código já tiver concluído;
-* Enviar um e-mail notificando que o teste foi concluído para posterior avaliação;
+Abra o seu editor de código e acesse o diretório NSDigital/, nele você precisará **criar uma cópia do arquivo .env.example** e **renomear essa cópia para somente .env**.
+A partir daqui, usaremos comandos pela linha de comando do seu SO, então, acesse por ela a pasta NSDigital.
 
-## Diferenciais
-* Fazer a tela de crud responsiva, usando algum framework como: bootstrap, material design e etc
-* Usar testes unitários para qualquer parte do sistema;
-* Usar commits com mensagens claras;
-* Boas práticas de programação, código limpo, design patterns;
-* Utilizar algum gerenciador de dependências caso faça uso de componentes de terceiros;
+Há dois serviços, o laravel-app e o mysql-db, que serão levantados assim que você rodar o comando:
+
+    > docker-compose build && docker-compose up -d
+
+
+
+**Step #2**
+
+Após isso, acesse através do docker o servidor apache (laravel-app) para que possamos utilizar o terminal, e executar alguns comandos necessários:
+    
+    > docker exec -it laravel-app bash
+	
+Agora já estamos dentro do servidor, e podemos usar as funcionalidades do framework, perceba que estamos na pasta /var/www/html, e aqui estão todos os arquivos do projeto que foram copiados e colados aqui através do Docker.
+
+**Step #3**
+
+Está na hora de executar o gerenciador de dependências para que nossas dependências de terceiros estejam prontas. 
+
+    > compose update
+
+
+**Step #4**
+
+Gere a chave da aplicação:
+	
+	> php artisan key:generate
+
+
+**Step #5**
+
+E agora, com esse comando, o Laravel cria as tabelas e alterações no banco de dados pré-estabelecidas pelas Migrations:
+
+	> php artisan migrate
+
+Pronto, caso as migrations tenham rodado normalmente, não aparecerá nenhum erro em sua tela, apenas aparecerá a confirmação de sucesso, e a aplicação está pronta para ser acessada pelo seu navegador através do link:
+	
+ [http://127.0.0.1:8000/login](http://127.0.0.1:8000/login)
+
+
+# O Sistema
+Não foi feito nenhuma autenticação de usuário, por isso, ao clicar em ***Login*** na página de Login sem precisar informar nenhum dado de acesso, já estará disponível na tela a Página Dashboard, onde há um Overview com informações de quantidade de artistas, albuns e músicas cadastradas, também como último artista e última música,  além de atalhos para criar um novo artista ou um novo álbum.
+O menu está organizado em forma de tab, assim é fácil e rápida a navegação entre páginas.
+
+ ### Artista
+ Para visualizar os artistas cadastrados basta clicar na tab ***Artistas***, onde descreve cada um, e oferece ações rápidas como: *Criar Álbum, Editar, Visualizar e Deletar (o que é feito sem recarregar a página)*.
+Abaixo da tabela há um botão ***(Criar Novo Artista)*** que leva ao formulário de cadastro de Artistas, onde bastará informar o nome e a imagem do Artista para que o mesmo seja cadastrado.
+
+ ### Álbuns e Músicas
+Referente aos Álbuns, é obrigatório selecionar um artista para ser o proprietário, por isso, na tab de ***Álbuns***, além de ter a listagem dos álbuns (com ações de editar e deletar o álbum), ao pressionar o botão ***Criar Novo Álbum*** você precisará selecionar um dos artistas cadastrados no sistema para prosseguir. 
+No cadastro de álbum, é possível informar a imagem de capa do Álbum e o seu título, porém, antes de salvar, é necessário inserir pelo menos uma música (título e depois arquivo mp3) na listagem ao lado. Vale ressaltar que o arquivo está sendo salvo no banco de dados. A partir daí, já é possível salvar o álbum.
+
+ ### Testes Unitários
+Para relizar os testes pré-definidos (se encontram em tests/), é necessário estar no servidor *(Step 2#)*, na pasta do sistema, e simplesmente executar o comando:
+
+    > ./vendor/bin/phpunit
+
+
+
+## Screenshots
+
+
+![Tela de Login](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Login.jpg)
+
+![Tela de Overview](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Overview.jpg)
+
+![Listagem de Artistas](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Artistas.md.jpg)
+
+![Cadastro de Artistas](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Cadastro-de-Artistas.jpg)
+
+![Listagem de Álbuns](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Albuns.jpg)
+
+![Cadastro de Álbum](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Cadastro-de-Album.jpg)
+
+
+
+## Referências
+
+[https://stack.desenvolvedor.expert/appendix/docker/instalacao.html](https://stack.desenvolvedor.expert/appendix/docker/instalacao.html)
