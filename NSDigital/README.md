@@ -80,7 +80,7 @@ Para relizar os testes pré-definidos (se encontram em tests/), é necessário e
 
 ![Tela de Login](https://i.ibb.co/ccVW7vK/Tela-de-Login.jpg)
 
-![Tela de Overview](https://i.ibb.co/HrM5KNt/Tela-de-Overview.jpg)
+![Tela de Overview](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Overview.jpg)
 
 ![Listagem de Artistas](https://i.ibb.co/x6cYXGG/Tela-de-Artistas.jpg)
 
