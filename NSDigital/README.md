@@ -13,31 +13,30 @@ Primeiro, será necessário ter em sua máquina instalado o Docker, para que sej
 
 
 **Step #1**
+Abra o seu editor de código e acesse o diretório NSDigital/, nele você precisará **criar uma cópia do arquivo .env.example** e **renomear essa cópia para somente .env**.
+A partir daqui, usaremos comandos pela linha de comando do seu SO, então, acesse por ela a pasta NSDigital.
 
 Há dois serviços, o laravel-app e o mysql-db, que serão levantados assim que você rodar o comando:
 
     > docker-compose build && docker-compose up -d
 
 
-**Step #2**
 
+**Step #2**
 Após isso, acesse através do docker o servidor apache (laravel-app) para que possamos utilizar o terminal, e executar alguns comandos necessários:
     
     > docker exec -it laravel-app bash
 	
 Agora já estamos dentro do servidor, e podemos usar as funcionalidades do framework, perceba que estamos na pasta /var/www/html, e aqui estão todos os arquivos do projeto que foram copiados e colados aqui através do Docker.
 
-
 **Step #3**
-
 Está na hora de executar o gerenciador de dependências para que nossas dependências de terceiros estejam prontas. 
 
     > compose update
 
-
 **Step #4**
 
-Gere a key da aplicação:
+Gere a chave da aplicação:
 	
 	> php artisan key:generate
 
@@ -48,62 +47,24 @@ E agora, com esse comando, o Laravel cria as tabelas e alterações no banco de 
 
 	> php artisan migrate
 
-Pronto, a aplicação está pronta para ser acessada pelo seu navegador através do link:
+Pronto, caso as migrations tenham rodado normalmente, não aparecerá nenhum erro em sua tela, apenas aparecerá a confirmação de sucesso, e a aplicação está pronta para ser acessada pelo seu navegador através do link:
 	
  [http://127.0.0.1:8000/login](http://127.0.0.1:8000/login)
 
 
 # O Sistema
+Não foi feito nenhuma autenticação de usuário, por isso, ao clicar em ***Login*** na página de Login sem precisar informar nenhum dado de acesso, já estará disponível na tela a Página Dashboard, onde há um Overview com informações de quantidade de artistas, albuns e músicas cadastradas, também como último artista e última música,  além de atalhos para criar um novo artista ou um novo álbum.
+O menu está organizado em forma de tab, assim é fácil e rápida a navegação entre páginas.
 
-	
+ ### Artista
+ Para visualizar os artistas cadastrados basta clicar na tab ***Artistas***, onde descreve cada um, e oferece ações rápidas como: *Criar Álbum, Editar, Visualizar e Deletar (o que é feito sem recarregar a página)*.
+Abaixo da tabela há um botão ***(Criar Novo Artista)*** que leva ao formulário de cadastro de Artistas, onde bastará informar o nome e a imagem do Artista para que o mesmo seja cadastrado.
 
-
+ ### Álbuns e Músicas
+Referente aos Álbuns, é obrigatório selecionar um artista para ser o proprietário, por isso, na tab de ***Álbuns***, além de ter a listagem dos álbuns (com ações de editar e deletar o álbum), ao pressionar o botão ***Criar Novo Álbum*** você precisará selecionar um dos artistas cadastrados no sistema para prosseguir. 
+No cadastro de álbum, é possível informar a imagem de capa do Álbum e o seu título, porém, antes de salvar, é necessário inserir pelo menos uma música (título e depois arquivo mp3) na listagem ao lado. Vale ressaltar que o arquivo está sendo salvo no banco de dados. A partir daí, já é possível salvar o álbum.
 
 
 ## Referências
 
 [https://stack.desenvolvedor.expert/appendix/docker/instalacao.html](https://stack.desenvolvedor.expert/appendix/docker/instalacao.html)
-
-
-## Publish a File
-
-You can publish your file by opening the **Publish** sub-menu and by clicking **Publish to**. For some locations, you can choose between the following formats:
-
-- Markdown: publish the Markdown text on a website that can interpret it (**GitHub** for instance),
-- HTML: publish the file converted to HTML via a Handlebars template (on a blog for example).
-
-## SmartyPants
-
-SmartyPants converts ASCII punctuation characters into "smart" typographic punctuation HTML entities. For example:
-
-|                |ASCII                          |HTML                         |
-|----------------|-------------------------------|-----------------------------|
-|Single backticks|`'Isn't this fun?'`            |'Isn't this fun?'            |
-|Quotes          |`"Isn't this fun?"`            |"Isn't this fun?"            |
-|Dashes          |`-- is en-dash, --- is em-dash`|-- is en-dash, --- is em-dash|
-
-## UML diagrams
-
-You can render UML diagrams using [Mermaid](https://mermaidjs.github.io/). For example, this will produce a sequence diagram:
-
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
