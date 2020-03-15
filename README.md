@@ -78,17 +78,17 @@ Para relizar os testes pré-definidos (se encontram em tests/), é necessário e
 ## Screenshots
 
 
-![Tela de Login](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Login.jpg)
+![Tela de Login](https://i.imgur.com/UGK70lx.jpg)
 
-![Tela de Overview](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Overview.jpg)
+![Tela de Overview](https://i.imgur.com/zAaBQMc.jpg)
 
-![Listagem de Artistas](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Artistas.md.jpg)
+![Listagem de Artistas](https://i.imgur.com/g0VovRv.jpg)
 
-![Cadastro de Artistas](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Cadastro-de-Artistas.jpg)
+![Cadastro de Artistas](https://i.imgur.com/uwDKLO7.jpg)
 
-![Listagem de Álbuns](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Albuns.jpg)
+![Listagem de Álbuns](https://i.imgur.com/jd024YW.jpg)
 
-![Cadastro de Álbum](https://ap.imagensbrasil.org/images/2020/03/06/Tela-de-Cadastro-de-Album.jpg)
+![Cadastro de Álbum](https://i.imgur.com/FIz6F6V.jpg)
 
 
 
