@@ -1,0 +1,334 @@
+section .container-table-artists {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container-table-artists .album_image {
+  width: 50px;
+  height: 50px;
+  background-color: #CCCCCC;
+  margin-right: 0px;
+}
+
+section .container-table-artists .btn-create-album {
+  width: 200px;
+  height: 50px;
+  background-color: #1D1D31;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+section .container-table-artists .btn-create-album:hover {
+  text-decoration: none;
+}
+
+section .container-table-artists .btn-create-album i { 
+  margin-right: 5px;
+}
+
+section .form-album {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: solid 2px #1D1D31;
+}
+
+section .form-album form { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section .form-album .label-input-file {
+  background-color: #1D1D31;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 100px;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+
+section .form-album .label-input-file:hover {
+  cursor: pointer;
+}
+
+section .form-album .label-input-file i { 
+  font-size: 36px;
+}
+
+section .form-album #music_name {
+  font-size: 20px;
+}
+
+section .form-album label { 
+  color: #FFF;
+  font-size: 12px;
+}
+
+section .form-album .form-input-file input {
+  display: none;
+}
+
+section .form-album .form-input-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+
+section .form-album .form-input-title input { 
+  background-color: #1D1D31;
+  border: 1px solid #1D1D31;
+  font-size: 18px;
+  color: #FFF;
+}
+
+section .form-album .form-input-title input::placeholder {
+  color: #FFF;
+  padding: 10px;
+}
+
+section .container-form {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+section .container-form .form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+section .container-form .container-form-button {
+  margin-top: 20px;
+  justify-content: center;
+}
+
+section .container-form .form-music {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section .container-form .form-music .form-music-input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container-form .form-music .input-title-music { 
+  background-color: #1D1D31;
+  border: 1px solid #1D1D31;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 2px;
+  color: #FFF;
+}
+
+section .container-form .form-music .input-title-music::placeholder { 
+  color: #FFF;
+  padding: 5px;
+  font-size: 14px;
+} 
+
+section .container-form .form-music .form-input-file .label-input-file {
+  color: #FFF;
+  margin-left: 10px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .container-form .form-music .form-input-file .label-input-file i {
+  margin-right: 10px;
+}
+
+section .container-form .form-music .form-input-file input {
+  display: none;
+}
+
+section .container-form .form-music #btn-add-music {
+  font-size: 24px;
+  margin-left: 10px;
+  align-self: flex-end;
+  color: #1ABB9C;
+}
+
+section .container-form .form-music #btn-add-music i {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+}
+
+section .container-form .table-musics {
+  height: 300px;
+  width: 100%;
+  background-color: #1D1D31;
+  -webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+
+section .container-form .table-musics thead tr {
+  background-color: #FFF;
+  color: #1D1D31;
+}
+
+section .container-form .table-musics tbody tr {
+  color: #FFF;
+  cursor: pointer;
+}
+
+section .container-form .container-table-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+section .container-form .container-table-actions i {
+  font-size: 24px;
+  color: #1ABB9C;
+  margin: 5px;
+}
+
+.music_file_td {
+  display: none;
+}
+
+.music_size_file_td {
+  display: none;
+}
+
+.img_album {
+  width: 60px;
+  height: 60px;
+}
+
+.container_artists {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #1D1D31;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #1D1D31;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.closeModal {
+  color: #FFF;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Modal Header */
+.modal-header {
+  padding: 2px 16px;
+  background-color: #141428;
+  color: white;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #141428;
+  color: white;
+}
+
+#btn-select-artist {
+  width: 100px;
+  height: 20px;
+  background-color: #F96332;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+/* MEDIA QUERY */
+
+
+@media(max-width: 600px) { 
+
+  section .container-form .form {
+    flex-direction: column;
+  }
+
+  section .form-album {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+}
